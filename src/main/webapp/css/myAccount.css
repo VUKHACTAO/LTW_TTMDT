@@ -1,0 +1,222 @@
+
+@media (min-width: 768px)
+#layout-page .AccountSidebar-list ul li.active {
+    background-color: #ebebf0;
+    color: black;
+}
+
+@media (min-width: 768px)
+#layout-page .AccountSidebar-list ul li {
+    width: 250px;
+    margin-right: 17px;
+}
+
+#layout-page .AccountSidebar-list ul li a {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 7px 18px;
+    color: #4a4a4a;
+}
+
+#layout-page .AccountSidebar-list ul li a svg, #layout-page .AccountSidebar-list ul li a img {
+    width: 24px;
+    height: 24px;
+    margin: 0 22px 0 0;
+    font-size: 24px;
+    color: #9b9b9b;
+}
+
+svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+}
+
+#layout-page .Account__StyleInfo {
+    flex: 1 1 0;
+}
+
+#layout-page .Account__StyleInfo h1 {
+    font-size: 20px;
+    line-height: 21px;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+#layout-page .Account__StyleInfo form {
+    max-width: 553px;
+}
+
+#layout-page .Account__Style {
+    display: flex;
+    width: 100%;
+    margin: 0 auto 20px;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px)
+#layout-page .AccountSidebar {
+    width: 250px;
+    margin-right: 17px;
+}
+#layout-page .Account__StyleInfo .info {
+    background: #fff;
+    padding: 16px 24px 16px 16px;
+}
+
+form {
+    display: block;
+}
+
+.form-control, input {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+input[type="hidden" i] {
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    display: none !important;
+    border: initial;
+    border-color: initial;
+    border-radius: initial;
+}
+
+input {
+    text-rendering: auto;
+    color: fieldtext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0;
+    text-shadow: none;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0 0 15px;
+}
+
+#layout-page .Account__StyleInfo form .large_form label {
+    width: 110px;
+    min-width: 110px;
+    font-size: 14px;
+    color: #333333;
+}
+
+#layout-page .Account__StyleInfo form .large_form input {
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s, -webkit-box-shadow 0.15s ease-in-out 0s;
+    height: 36px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px 12px;
+    line-height: 20px;
+    flex: 1 1 0;
+    border: 1px solid #c4c4cf;
+}
+
+#layout-page .Account__StyleInfo form #gender {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0 0 34px;
+}
+
+#layout-page .Account__StyleInfo form #gender > label {
+    width: 110px;
+    min-width: 110px;
+    font-size: 14px;
+    color: #333333;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+#layout-page .Account__StyleInfo form #gender ul {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0;
+}
+
+#layout-page .Account__StyleInfo form #gender ul li {
+    display: flex;
+    margin-right: 15px;
+    cursor: pointer;
+    align-items: center;
+}
+
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#layout-page .Account__StyleInfo form #gender ul li label {
+    margin-left: 5px;
+    margin-bottom: 0;
+}
+
+#layout-page .Account__StyleInfo form .updateAccount {
+    width: 176px;
+    margin-top: 0;
+    background: #2cbde5;
+    color: #fff;
+    font-weight: 700;
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+
+button, select {
+    outline: none!important;
+    box-shadow: none;
+    text-transform: none;
+}
+
+.clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+}

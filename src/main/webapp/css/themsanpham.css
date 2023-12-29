@@ -1,0 +1,15 @@
+.form-control{
+    width: 200px;
+    border-radius: 10px;
+}
+.mb-3{
+    float: left;
+    padding: 50px;
+
+}
+.form-label{
+    color: black;
+}
+option{
+    text-align: center;
+}

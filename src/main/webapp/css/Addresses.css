@@ -1,0 +1,696 @@
+#layout-page .Account__StyleInfo {
+    flex: 1 1 0%;
+}
+#layout-page .Account__StyleInfo h1 {
+    font-size: 20px;
+    line-height: 21px;
+    font-weight: 700;
+    margin: 15px 0px;
+}
+h1 {
+    font-size: 2.28571em;
+    font-weight: 700;
+}
+.h1, h1 {
+    font-size: 2.5rem;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+#layout-page .Account__StyleInfo .inner .item {
+    background-color: white;
+    padding: 17px;
+    border-radius: 4px;
+    margin: 0px 0px 10px;
+    font-size: 13px;
+    line-height: 19px;
+}
+#layout-page .Account__StyleInfo .inner .item .view_address {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    font-size: 13px;
+    width: 100%;
+}
+#layout-page .Account__StyleInfo .inner .item .name {
+    text-transform: uppercase;
+    margin: 0px 0px 10px;
+}
+#layout-page .Account__StyleInfo .inner .item .default-adresss {
+    color: #00A2EC;
+    font-size: 12px;
+    margin: 0px 0px 0px 15px;
+    display: inline-block;
+    -webkit-box-align: center;
+    align-items: center;
+    text-transform: none;
+}
+svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+#layout-page .Account__StyleInfo .inner .item .address {
+    margin: 0px 0px 5px;
+}
+#layout-page .Account__StyleInfo .inner .item .action-address {
+    text-align: right;
+    width: 30%;
+}
+#layout-page .Account__StyleInfo .inner .item .edit {
+    font-size: 14px;
+    color: #00A2EC;
+    display: inline-block;
+    padding: 6px 12px;
+}
+a, a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    color: #333333;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+element.style {
+    display: none;
+}
+#layout-page .Account__StyleInfo form {
+    max-width: 553px;
+}
+.form-control, input {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+#layout-page .Account__StyleInfo form .large_form label {
+    width: 110px;
+    min-width: 110px;
+    font-size: 14px;
+    color: #333333;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+#layout-page .Account__StyleInfo form .large_form input {
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s, -webkit-box-shadow 0.15s ease-in-out 0s;
+    height: 36px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px 12px;
+    line-height: 20px;
+    outline: none;
+    flex: 1 1 0%;
+    border: 1px solid #c4c4cf;
+}
+.form-control, input {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+#layout-page .Account__StyleInfo form .large_form label {
+    width: 110px;
+    min-width: 110px;
+    font-size: 14px;
+    color: #333333;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+#layout-page .Account__StyleInfo form .large_form input {
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s, -webkit-box-shadow 0.15s ease-in-out 0s;
+    height: 36px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px 12px;
+    line-height: 20px;
+    outline: none;
+    flex: 1 1 0%;
+    border: 1px solid #c4c4cf;
+}
+.form-control, input {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+
+
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+
+
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+#layout-page .Account__StyleInfo form .large_form label {
+    width: 110px;
+    min-width: 110px;
+    font-size: 14px;
+    color: #333333;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+
+#layout-page .Account__StyleInfo form .large_form textarea {
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s, -webkit-box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px 12px;
+    line-height: 20px;
+    outline: none;
+    flex: 1 1 0%;
+    border: 1px solid #c4c4cf;
+}
+
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+
+.form-control, input {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+button, select {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+    cursor: pointer;
+}
+select {
+    word-wrap: normal;
+}
+button, select {
+    text-transform: none;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+
+.form-control, input {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+button, select {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+    cursor: pointer;
+}
+select {
+    word-wrap: normal;
+}
+button, select {
+    text-transform: none;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+
+#layout-page .Account__StyleInfo form .updateAccount {
+    width: 176px;
+    margin-top: 0;
+    background: #2cbde5;
+    color: #fff;
+    font-weight: 700;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+button, select {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+    cursor: pointer;
+}
+button, select {
+    text-transform: none;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+button {
+    border-radius: 0;
+}
+element.style {
+    margin-left: 15px;
+}
+a, a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    color: #333333;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+#layout-page .Account__StyleInfo .inner .new .linknew {
+    background-color: white;
+    font-size: 15px;
+    min-height: 50px;
+    border: 1px dashed #d8d8d8;
+    margin: 0px 0px 10px;
+    padding: 5px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+a, a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    color: #333333;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+#layout-page .Account__StyleInfo .inner .new #add_address {
+    background: #fff;
+    padding: 10px;
+}
+
+element.style {
+    display: none;
+}
+#layout-page .Account__StyleInfo form {
+    max-width: 553px;
+}
+.form-control, input {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+}
+
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.form-control, input {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+}
+
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+#layout-page .Account__StyleInfo form .large_form label {
+    width: 110px;
+    min-width: 110px;
+    font-size: 14px;
+    color: #333333;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+
+
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+
+
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+
+#layout-page .Account__StyleInfo form .large_form input {
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s, -webkit-box-shadow 0.15s ease-in-out 0s;
+    height: 36px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px 12px;
+    line-height: 20px;
+    outline: none;
+    flex: 1 1 0%;
+    border: 1px solid #c4c4cf;
+}
+
+.form-control, input {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}.form-control, input {
+     transition: all 0.3s ease-in-out;
+     outline: none !important;
+     box-shadow: none;
+ }
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+button, select {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+    cursor: pointer;
+}
+select {
+    word-wrap: normal;
+}
+button, select {
+    text-transform: none;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+#layout-page .Account__StyleInfo form .setdefault-wrap {
+    display: flex;
+    align-items: center;
+}
+#layout-page .Account__StyleInfo form .large_form {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+#layout-page .Account__StyleInfo form .updateAccount {
+    width: 176px;
+    margin-top: 0;
+    background: #2cbde5;
+    color: #fff;
+    font-weight: 700;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+button, select {
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    box-shadow: none;
+    cursor: pointer;
+}
+button, select {
+    text-transform: none;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+button {
+    border-radius: 0;
+}
+element.style {
+    margin-left: 15px;
+}
+a, a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    color: #333333;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}

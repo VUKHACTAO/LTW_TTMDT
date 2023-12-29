@@ -1,0 +1,92 @@
+#layout-page .Account__StyleInfo {
+    flex: 1 1 0;
+}
+
+#layout-page .Account__StyleInfo h1 {
+    font-size: 20px;
+    line-height: 21px;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+h1 {
+    display: block;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+#layout-page .Account__StyleInfo .inner .item {
+    background-color: white;
+    padding: 17px;
+    border-radius: 4px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 19px;
+}
+
+#layout-page .Account__StyleInfo .inner .item .view_address {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    font-size: 13px;
+    width: 100%;
+}
+
+#layout-page .Account__StyleInfo .inner .item .name {
+    text-transform: uppercase;
+    margin: 0 0 10px;
+}
+
+#layout-page .Account__StyleInfo .inner .item .default-adresss {
+    color: #00A2EC;
+    font-size: 12px;
+    margin: 0 0 0 15px;
+    display: inline-block;
+    -webkit-box-align: center;
+    align-items: center;
+    text-transform: none;
+}
+
+svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+}
+
+#layout-page .Account__StyleInfo .inner .item .address {
+    margin: 0 0 5px;
+}
+
+#layout-page .Account__StyleInfo .inner .item .action-address {
+    text-align: right;
+    width: 30%;
+}
+
+#layout-page .Account__StyleInfo .inner .item .edit {
+    font-size: 14px;
+    color: #00A2EC;
+    display: inline-block;
+    padding: 6px 12px;
+}
+
+#layout-page .Account__StyleInfo .inner .new .linknew {
+    background-color: white;
+    font-size: 15px;
+    min-height: 50px;
+    border: 1px dashed #d8d8d8;
+    margin: 0 0 10px;
+    padding: 5px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+#layout-page .Account__StyleInfo .inner .new #add_address {
+    background: #fff;
+    padding: 10px;
+}
