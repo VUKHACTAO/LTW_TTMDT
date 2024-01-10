@@ -1,85 +1,32 @@
 package com.example.demo5.Model;
 
-import java.util.Date;
-
 public class User {
-    private int idUser, idrole, reward, status, sex;
-    private String userName, password, email, phoneNumber, linkImage, address, fullName;
-    private Date date;
+    private String id, email, password;
+    private int isVerify;
+    private String phoneNumber, sex, dateOfBirth, address;
+    private int reward;
 
-    public User(int idUser, int idrole, int reward, int status, int sex, String userName, String password, String email, String phoneNumber, String linkImage, String address, String fullName, Date date) {
-        this.idUser = idUser;
-        this.idrole = idrole;
-        this.reward = reward;
-        this.status = status;
-        this.sex = sex;
-        this.userName = userName;
-        this.password = password;
+    public User(String id, String email, String password, int isVerify, String phoneNumber, String sex, String dateOfBirth, String address, int reward) {
+        this.id = id;
         this.email = email;
+        this.password = password;
+        this.isVerify = isVerify;
         this.phoneNumber = phoneNumber;
-        this.linkImage = linkImage;
+        this.sex = sex;
+        this.dateOfBirth = dateOfBirth;
         this.address = address;
-        this.fullName = fullName;
-        this.date = date;
-    }
-    public User(){
-
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
-
-    public int getIdrole() {
-        return idrole;
-    }
-
-    public void setIdrole(int idrole) {
-        this.idrole = idrole;
-    }
-
-    public int getReward() {
-        return reward;
-    }
-
-    public void setReward(int reward) {
         this.reward = reward;
     }
 
-    public int getStatus() {
-        return status;
+    public User() {
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public String getId() {
+        return id;
     }
 
-    public int getSex() {
-        return sex;
-    }
-
-    public void setSex(int sex) {
-        this.sex = sex;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -90,6 +37,22 @@ public class User {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getIsVerify() {
+        return isVerify;
+    }
+
+    public void setIsVerify(int isVerify) {
+        this.isVerify = isVerify;
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -98,12 +61,20 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getLinkImage() {
-        return linkImage;
+    public String getSex() {
+        return sex;
     }
 
-    public void setLinkImage(String linkImage) {
-        this.linkImage = linkImage;
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getAddress() {
@@ -114,38 +85,26 @@ public class User {
         this.address = address;
     }
 
-    public String getFullName() {
-        return fullName;
+    public int getReward() {
+        return reward;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public void setReward(int reward) {
+        this.reward = reward;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "idUser=" + idUser +
-                ", idrole=" + idrole +
-                ", reward=" + reward +
-                ", status=" + status +
-                ", sex=" + sex +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
+                "id='" + id + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", isVerify=" + isVerify +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", linkImage='" + linkImage + '\'' +
+                ", sex='" + sex + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", address='" + address + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", date=" + date +
+                ", reward=" + reward +
                 '}';
     }
 }
