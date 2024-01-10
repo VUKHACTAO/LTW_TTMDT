@@ -42,14 +42,14 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4" style="font-weight: bold; color: #78261f">ĐĂNG NHẬP</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="login">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input name="email1" type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Tên đăng nhập...">
+                                                placeholder="Nhập Email">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
+                                            <input name="pass1" type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Mật khẩu">
                                         </div>
                                         <div class="form-group">
@@ -58,16 +58,17 @@
                                                 <label class="custom-control-label" for="customCheck">Lưu mật khẩu</label>
                                             </div>
                                         </div>
-                                        <a href="index.jsp" class="btn btn-primary btn-user btn-block">
-                                            ĐĂNG NHẬP
-                                        </a>
+                                        <div class="form-group">
+                                            <button type="submit">Đăng nhập</button>
+                                        </div>
+
 
 
                                     </form>
 
 
                                     <div class="text-center" style="margin-top: 30px">
-                                        <a class="small" href="forgot-password.html" >Quên mật khẩu?</a>
+                                        <a class="small" href="forgot-password.jsp" >Quên mật khẩu?</a>
                                     </div>
                                     <br>
                                     <div class="text-center" style="margin-top: 10px">
