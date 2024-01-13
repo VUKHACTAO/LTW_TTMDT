@@ -42,11 +42,11 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4" style="font-weight: bold; color: #78261f">ĐĂNG NHẬP</h1>
                                     </div>
-                                    <form class="user" action="login">
+                                    <form class="user" action="login" method="post">
                                         <div class="form-group">
-                                            <input name="email1" type="email" class="form-control form-control-user"
+                                            <input name="userName" type="text" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Nhập Email">
+                                                placeholder="Nhập Username">
                                         </div>
                                         <div class="form-group">
                                             <input name="pass1" type="password" class="form-control form-control-user"

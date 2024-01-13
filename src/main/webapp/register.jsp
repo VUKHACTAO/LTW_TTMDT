@@ -1,3 +1,6 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.demo5.Ulit.Check" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +25,26 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-
 <body class="bg-gradient-primary">
+
+<% String username = String.valueOf(request.getAttribute("username"));%>
+<% String fullname = String.valueOf(request.getAttribute("fullname"));%>
+<% String email = String.valueOf(request.getAttribute("email"));%>
+<% String phonenumber = String.valueOf(request.getAttribute("phonenumber"));%>
+<% String address = String.valueOf(request.getAttribute("address"));%>
+<% String password = String.valueOf(request.getAttribute("password"));%>
+<% String repassword = String.valueOf(request.getAttribute("repassword"));%>
+
+
+
+
+
+
+
+
+
+
+
 
     <div class="container">
 
@@ -37,38 +58,55 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4" style="font-weight: bold">ĐĂNG KÝ TÀI KHOẢN</h1>
                             </div>
-                            <form class="user">
+                            <form class="user" action="register" method="post">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Họ">
+                                        <input name="username" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="Ten dang nhap" required="required">
+
+
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Tên">
+                                        <input name="fullname"type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Ho va ten" required="required">
+
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email">
+                                    <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Email" required="required">
+
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control form-control-user"
-                                           placeholder="Số điện thoại">
+                                    <input type="number" name="phonenumber" class="form-control form-control-user"
+                                           placeholder="Số điện thoại" required="required">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" name="address" class="form-control form-control-user"
+                                           placeholder="Dia chi " required="required">
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" name="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Mật khẩu" required="required">
+
+                                    </div>
+
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Mật khẩu">
+                                        <input type="password" name="repassword" class="form-control form-control-user"
+                                               id="exampleInputPassword repeat" placeholder=" Nhap lai mật khẩu" required="required">
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Nhập lại mật khẩu">
-                                    </div>
+
                                 </div>
-                                <a href="login.jsp" class="btn btn-primary btn-user btn-block" style="background-color: red; border: none">
-                                    XÁC NHẬN ĐĂNG KÝ
-                                </a>
+                                <h6 style="color: red"></h6>
+
+
+                               <button type="submit">Xác nhận đăng ký</button>
                                 <hr>
 
                             </form>
@@ -83,7 +121,10 @@
             </div>
         </div>
 
+
+
     </div>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -94,6 +135,25 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+<script type="text/javascript">
+    var status = document.getElementById("status").value;
+    if(status== "Dang ky thanh cong"){
+        swal("Congrats", "Dang ky thanh cong!", "success");
+    }
+    if(status== "Ten dang nhap da ton tai"){
+        swal("Sorry", "Ten dang nhap da ton tai!", "error");
+    }
+    if(status== "Email da ton tai"){
+        swal("Sorry", "Email da ton tai!", "error");
+    }
+    if(status== "Mat khau khong trung khop"){
+        swal("Sorry", "Mat khau khong trung khop!", "error");
+    }
+    if(status== "So dien thoai  khong hop le"){
+        swal("Sorry", "So dien thoai  khong hop le!", "error");
+    }
+
+</script>
 
 </body>
 

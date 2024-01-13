@@ -1,24 +1,33 @@
 package com.example.demo5.Model;
 
+import java.util.Date;
+
 public class User {
     private String id, email, password;
-    private int isVerify;
-    private String phoneNumber, sex, dateOfBirth, address;
+    private int isVerify, status, idRole;
+    private String   phoneNumber, sex, dateOfBirth, address,userName, linkImage, fullname;
     private int reward;
+    private String dateofBirth;
 
-    public User(String id, String email, String password, int isVerify, String phoneNumber, String sex, String dateOfBirth, String address, int reward) {
+    public User(String id, String email, String password, int isVerify, int status, int idRole, String phoneNumber, String sex, String dateOfBirth, String address, String userName, String linkImage, String fullname, int reward, String dateofBirth) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.isVerify = isVerify;
+        this.status = status;
+        this.idRole = idRole;
         this.phoneNumber = phoneNumber;
         this.sex = sex;
         this.dateOfBirth = dateOfBirth;
         this.address = address;
+        this.userName = userName;
+        this.linkImage = linkImage;
+        this.fullname = fullname;
         this.reward = reward;
+        this.dateofBirth = dateofBirth;
     }
+    public User (){
 
-    public User() {
     }
 
     public String getId() {
@@ -28,6 +37,7 @@ public class User {
     public void setId(String id) {
         this.id = id;
     }
+
 
     public String getEmail() {
         return email;
@@ -51,6 +61,22 @@ public class User {
 
     public void setIsVerify(int isVerify) {
         this.isVerify = isVerify;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getIdRole() {
+        return idRole;
+    }
+
+    public void setIdRole(int idRole) {
+        this.idRole = idRole;
     }
 
     public String getPhoneNumber() {
@@ -85,12 +111,44 @@ public class User {
         this.address = address;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getLinkImage() {
+        return linkImage;
+    }
+
+    public void setLinkImage(String linkImage) {
+        this.linkImage = linkImage;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
     public int getReward() {
         return reward;
     }
 
     public void setReward(int reward) {
         this.reward = reward;
+    }
+
+    public String getDateofBirth() {
+        return dateofBirth;
+    }
+
+    public void setDateofBirth(String dateofBirth) {
+        this.dateofBirth = dateofBirth;
     }
 
     @Override
@@ -100,11 +158,17 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", isVerify=" + isVerify +
+                ", status=" + status +
+                ", idRole=" + idRole +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", sex='" + sex + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", address='" + address + '\'' +
+                ", userName='" + userName + '\'' +
+                ", linkImage='" + linkImage + '\'' +
+                ", fullname='" + fullname + '\'' +
                 ", reward=" + reward +
+                ", dateofBirth='" + dateofBirth + '\'' +
                 '}';
     }
 }
