@@ -29,7 +29,7 @@ public class Check {
             listErr.add("Tai khoan da ton tai!");
 
         }
-        if (UserService.findUserbyEmail(email) == true) {
+        if (UserService.findEmailbyUsername(email) == true) {
             listErr.add("Email da ton tai ");
 
         }
