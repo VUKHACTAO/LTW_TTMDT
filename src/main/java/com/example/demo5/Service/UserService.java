@@ -109,12 +109,47 @@ public class UserService {
             System.out.println("lỗi kết nối");
         }
 
+
+    }
+    public static User getUserbyUsername(String username){
+        User user = new User();
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "SELECT `id`, `username`, `password`, `email`, `phoneNumber`, `address`, `id_role`, `reward`, `img`, `status` FROM `user` where username = ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setString(1,username);
+                ResultSet rs =   ps.executeQuery();
+
+                while (rs.next()){
+
+                    user.setId(rs.getString("id"));
+                    user.setUserName(rs.getString("username"));
+                    user.setPassword(rs.getString("password"));
+                    user.setEmail(rs.getString("email"));
+                    user.setPhoneNumber(rs.getString("phoneNumber"));
+                    user.setAddress(rs.getString("address"));
+                    user.setIdRole(rs.getInt("id_role"));
+                    user.setReward(rs.getInt("reward"));
+                    user.setLinkImage(rs.getString("img"));
+                    user.setStatus(rs.getInt("status"));
+
+                }
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return user;
+
     }
 
     public static void main(String[] args) {
         System.out.println( getPasswordbyUsername("Ngo Lam Anh Sang"));
         System.out.println( findEmailbyUsername("abcd95adp@gmail.com"));
         System.out.println(findUserbyUsername("taovu12121"));
+        System.out.println(getUserbyUsername("Ngo Lam Anh Sang").toString());
 
 
 

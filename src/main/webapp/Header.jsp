@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.demo5.Model.User" %><%--
   Created by IntelliJ IDEA.
   User: juant
   Date: 21/12/2023
@@ -148,11 +148,21 @@
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
                         </div>
+                        <% User a = (User) session.getAttribute("user");%>
+                        <%if(a==null){%>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="login.jsp" class="nav-item nav-link">Đăng nhập</a>
                             <a href="register.jsp" class="nav-item nav-link">Đăng kí</a>
                         </div>
+                       <% }else{%>
+                        <div class="navbar-nav ml-auto py-0">
+                        <img class="header-login-user-img" src="<%=a.getLinkImage()%>">
+                        <a href="register.jsp" class="nav-item nav-link"> <%a.getFullname();%></a>
+                        </div>
+                       <%}%>
+
                     </div>
+
                 </nav>
                 <div id="header-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">

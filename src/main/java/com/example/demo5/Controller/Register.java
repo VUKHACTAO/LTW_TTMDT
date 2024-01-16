@@ -2,6 +2,7 @@ package com.example.demo5.Controller;
 
 import com.example.demo5.Service.UserService;
 import com.example.demo5.Ulit.Check;
+import com.example.demo5.Ulit.Encode;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,12 +34,6 @@ public class Register extends HttpServlet {
         String address = req.getParameter("address");
         String repassword= req.getParameter("repassword");
         HttpSession session = req.getSession();
-            UserService.insertUser(username,password,email,fullname,address,phonenumber);
+            UserService.insertUser(username, Encode.checkksum(password),email,fullname,address,phonenumber);
             req.getRequestDispatcher("login.jsp").forward(req,resp);
-
-
-
-
-
-
 }}
