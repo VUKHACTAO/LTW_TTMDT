@@ -1,12 +1,20 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.demo5.Ulit.Check" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<% String error = request.getParameter("error");
+    String success = request.getParameter("success");
+    if (error != null) { %>
+<p style="color: red;"><%= error %></p>
+<% } else if (success != null) { %>
+<p style="color: green;"><%= success %></p>
+<% } %>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,17 +43,6 @@
 <% String password = String.valueOf(request.getAttribute("password"));%>
 <% String repassword = String.valueOf(request.getAttribute("repassword"));%>
 
-
-
-
-
-
-
-
-
-
-
-
     <div class="container">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
@@ -62,36 +59,63 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input name="username" type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Ten dang nhap" required="required">
+                                            placeholder="Tên đăng nhập" >
 
 
                                     </div>
                                     <div class="col-sm-6">
                                         <input name="fullname"type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Ho va ten" required="required">
+                                            placeholder="Họ và tên" >
 
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <!-- Xử lý hiển thị thông báo lỗi -->
+                                    <% String errorMessage1 = request.getParameter("error");
+                                        if ("Email has already existed in database. Please try again".equals(errorMessage1)) { %>
+                                    <p>Email đã tồn tại. Vui lòng sử dụng email khác.</p>
+                                    <% } %>
+
+                                    <% String errorMessage2 = request.getParameter("error");
+                                        if ("Passwords do not match".equals(errorMessage2)) { %>
+                                    <p>Mật khẩu không khớp vui lòng nhập lại</p>
+                                    <% } %>
+
+                                    <% String errorMessage3 = request.getParameter("error");
+                                        if ("Please fill in all fields".equals(errorMessage3)) { %>
+                                    <p>Vui lòng nhập đầy đủ các trường dữ liệu</p>
+                                    <% } %>
+
+                                    <% String errorMessage4 = request.getParameter("error");
+                                        if ("Username has already existed in database. Please try again".equals(errorMessage4)) { %>
+                                    <p>Username đã tồn tại. Vui lòng sử dụng email khác.</p>
+                                    <% } %>
+
+                                    <% String errorMessage5 = request.getParameter("error");
+                                        if ("Invalid Password".equals(errorMessage5)) { %>
+                                    <p>Mật khẩu không đúng yêu cầu.</p>
+                                    <% } %>
+
+
                                     <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email" required="required">
+                                        placeholder="Email">
 
                                 </div>
                                 <div class="form-group">
                                     <input type="number" name="phonenumber" class="form-control form-control-user"
-                                           placeholder="Số điện thoại" required="required">
+                                           placeholder="Số điện thoại" >
 
                                 </div>
 
                                 <div class="form-group">
                                     <input type="text" name="address" class="form-control form-control-user"
-                                           placeholder="Dia chi " required="required">
+                                           placeholder="Địa chỉ " >
                                 </div>
 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" name="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Mật khẩu" required="required">
+                                            id="exampleInputPassword" placeholder="Mật khẩu" >
 
                                     </div>
 
@@ -99,7 +123,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" name="repassword" class="form-control form-control-user"
-                                               id="exampleInputPassword repeat" placeholder=" Nhap lai mật khẩu" required="required">
+                                               id="exampleInputPassword repeat" placeholder=" Xác nhận mật khẩu" >
                                     </div>
 
                                 </div>
@@ -132,28 +156,11 @@
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="alert/dist/sweetalert.css">
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-<script type="text/javascript">
-    var status = document.getElementById("status").value;
-    if(status== "Dang ky thanh cong"){
-        swal("Congrats", "Dang ky thanh cong!", "success");
-    }
-    if(status== "Ten dang nhap da ton tai"){
-        swal("Sorry", "Ten dang nhap da ton tai!", "error");
-    }
-    if(status== "Email da ton tai"){
-        swal("Sorry", "Email da ton tai!", "error");
-    }
-    if(status== "Mat khau khong trung khop"){
-        swal("Sorry", "Mat khau khong trung khop!", "error");
-    }
-    if(status== "So dien thoai  khong hop le"){
-        swal("Sorry", "So dien thoai  khong hop le!", "error");
-    }
-
-</script>
 
 </body>
 

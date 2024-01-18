@@ -42,15 +42,26 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4" style="font-weight: bold; color: #78261f">ĐĂNG NHẬP</h1>
                                     </div>
+
                                     <form class="user" action="login" method="post">
                                         <div class="form-group">
-                                            <input name="userName" type="text" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Nhập Username">
+
+                                            <% String errorMessage1 = request.getParameter("error");
+                                                if ("Please fill in all fields".equals(errorMessage1)) { %>
+                                            <p>Vui lòng nhập tên đăng nhập và mật khẩu.</p>
+                                            <% } %>
+
+                                            <% String errorMessage2 = request.getParameter("error");
+                                                if ("Password is not correct.Please try again".equals(errorMessage2)) { %>
+                                            <p>Mật khẩu không khớp vui lòng nhập lại</p>
+                                            <% } %>
+
+                                            <input name="username" type="text" class="form-control form-control-user"
+                                                placeholder="Nhập tên đăng nhập">
                                         </div>
                                         <div class="form-group">
-                                            <input name="pass1" type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Mật khẩu">
+                                            <input name="password" type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Nhập mật khẩu">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -68,7 +79,7 @@
 
 
                                     <div class="text-center" style="margin-top: 30px">
-                                        <a class="small" href="forgot-password.jsp" >Quên mật khẩu?</a>
+                                        <a class="small" href="forgotPassword.jsp" >Quên mật khẩu?</a>
                                     </div>
                                     <br>
                                     <div class="text-center" style="margin-top: 10px">
@@ -95,6 +106,12 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+<!--JS-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="alert/dist/sweetalert.css">
 
 </body>
 
