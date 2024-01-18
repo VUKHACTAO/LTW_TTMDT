@@ -11,34 +11,30 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class JDBiConnector {
-     Jdbi jdbi;
-     static JDBiConnector con;
-     public JDBiConnector(){
+     private static Jdbi jdbi;
+
+     private static void makeConnect() {
+         MysqlDataSource data = new MysqlDataSource();
+         data.setURL("jdbc:mysql://" + DBProperties.dbHost() + ":" + DBProperties.dbPort() + "/" + DBProperties.DBName());
+         data.setUser(DBProperties.dbUsername());
+         data.setPassword(DBProperties.dbPassword());
 
          try {
-             MysqlDataSource data = new MysqlDataSource();
-             data.setURL("jdbc:mysql://" + DBProperties.host()+ ":" + DBProperties.port() + "/" + DBProperties.name());
-             data.setUser(DBProperties.user());
-             data.setPassword(DBProperties.pass());
              data.setAutoReconnect(true);
              data.setUseCompression(true);
-             jdbi = jdbi.create(data);
          } catch (SQLException e) {
+             e.printStackTrace();
              throw new RuntimeException(e);
          }
+         jdbi = Jdbi.create(data);
      }
 
-     public static  Jdbi me(){
-         if (con == null) con = new JDBiConnector();
-         return con.jdbi;
+     private JDBiConnector() {
+
      }
 
-    public static void main(String[] args) {
-     List<User> list =   JDBiConnector.me().withHandle(handle ->
-                {
-                    return handle.createQuery("select  * from User").mapToBean(User.class).stream().collect(Collectors.toList());
-                }
-                );
-        System.out.println(list.size());
-    }
+     public static Jdbi getJdbi(){
+         if(jdbi == null) makeConnect();
+         return jdbi;
+     }
 }
