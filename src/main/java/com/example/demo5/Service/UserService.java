@@ -9,79 +9,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class UserService {
-    public static User getUserbyID(int idUser){
-        User user = new User();
-
-        Statement statement = DBConnect.getInstance().get();
-        if(statement != null ){
-            try {
-                String sql = "SELECT * FROM `user` where id = ?";
-                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
-                ps.setInt(1,idUser);
-                ResultSet rs =   ps.executeQuery();
-
-                while (rs.next()){
-
-                   user.setIdUser(rs.getInt("id"));
-                   user.setUserName(rs.getString("username"));
-                   user.setPassword(rs.getString("password"));
-                   user.setEmail(rs.getString("email"));
-                   user.setPhoneNumber(rs.getString("phoneNumber"));
-                   user.setSex(rs.getInt("sex"));
-                   user.setAddress(rs.getString("address"));
-                   user.setDate(rs.getDate("date"));
-                   user.setReward(rs.getInt("reward"));
-                   user.setIdrole(rs.getInt("id_role"));
-                   user.setLinkImage(rs.getString("img"));
-                   user.setStatus(rs.getInt("status"));
-
-
-
-                }
-            }catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }else {
-            System.out.println("lỗi kết nối");
-        }
-        return user;
+    public static boolean findUserbyUsername(String username){
     }
-    public static User  getUserbyEmail(String email){
-        User user = new User();
-
-        Statement statement = DBConnect.getInstance().get();
-        if(statement != null ){
-            try {
-                String sql = "SELECT * FROM `user` where email = ?";
-                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
-                ps.setString(1,email);
-                ResultSet rs =   ps.executeQuery();
-
-                while (rs.next()){
-
-                    user.setIdUser(rs.getInt("id"));
-                    user.setUserName(rs.getString("username"));
-                    user.setPassword(rs.getString("password"));
-                    user.setEmail(rs.getString("email"));
-                    user.setPhoneNumber(rs.getString("phoneNumber"));
-                    user.setSex(rs.getInt("sex"));
-                    user.setAddress(rs.getString("address"));
-                    user.setDate(rs.getDate("date"));
-                    user.setReward(rs.getInt("reward"));
-                    user.setIdrole(rs.getInt("id_role"));
-                    user.setLinkImage(rs.getString("img"));
-                    user.setStatus(rs.getInt("status"));
-
-
-
-                }
-            }catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }else {
-            System.out.println("lỗi kết nối");
-        }
-        return user;
+    public static boolean findEmailbyUsername(String email){
+    }
+    public static String getPasswordbyUsername(String username){
+    }
+    public static void insertUser(String username, String password,String email,String fullname,String address, String phonenumber){
+    }
+    public static User getUserbyUsername(String username){
     }
 
 
@@ -91,7 +27,6 @@ public class UserService {
         System.out.println(u.getUserbyID(2).toString());
         System.out.println(u.getUserbyEmail("abcd95adp@gmail.com").toString());
     }
-
 
 
 
