@@ -1,8 +1,5 @@
 package com.example.demo5.Model;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -106,8 +103,7 @@ public class User implements Serializable {
     }
 
 
-    @NotEmpty
-    @Email(message = "Invalid email address")
+
     public String getEmail() {
         return email;
     }
@@ -116,8 +112,7 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    @NotEmpty
-    @Size(min = 6, message = "Password must be at least 6 characters long")
+
     public String getPassword() {
         return password;
     }
@@ -152,8 +147,7 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    @Size(max = 20, min = 3, message = "Invalid name. Size should be between 3 to 20.")
-    @NotEmpty(message = "Please enter your name.")
+
     public String getUserName() {
         return userName;
     }
