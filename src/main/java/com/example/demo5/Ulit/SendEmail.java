@@ -34,8 +34,8 @@ public class SendEmail {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(fromEmail);
             message.setRecipients(Message.RecipientType.TO, toEmail);
-            message.setSubject("Reset Password.");
-            message.setText("Enter this code to reset password: " + OTPCode());
+            message.setSubject("Confirm Code.");
+            message.setText("Enter this code to verify account: " + OTPCode());
 
             Transport.send(message);
         } catch (Exception e) {
@@ -65,8 +65,8 @@ public class SendEmail {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(fromEmail);
             message.setRecipients(Message.RecipientType.TO, toEmail);
-            message.setSubject("Confirm Code.");
-            message.setText("Register successfully.Please vertify your email using this code: " + OTPCode());
+            message.setSubject("Reset Password.");
+            message.setText("Enter this code to reset password: " + OTPCode());
 
             Transport.send(message);
         } catch (Exception e) {

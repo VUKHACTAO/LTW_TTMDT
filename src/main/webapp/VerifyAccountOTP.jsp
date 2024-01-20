@@ -1,12 +1,4 @@
-<%@ page import="java.io.*,java.util.*" %>
-<%@ page import="javax.mail.*,javax.mail.internet.*,javax.activation.*" %>
-<%@ page import="javax.mail.Authenticator" %>
-<%@ page import="javax.mail.PasswordAuthentication" %>
-<%@ page import="javax.mail.Session" %>
-<%@ page import="javax.mail.Transport" %>
-<%@ page import="java.util.Properties" %>
-<%@ page import="java.util.Random" %>
-<%@ page import="com.example.demo5.Model.User" %>
+
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 
@@ -56,16 +48,16 @@
 								<form id="register-form" action="ValidateOtp" role="form" autocomplete="off"
 									class="form" method="post">
 
+
 									<% String errorMessage1 = request.getParameter("error");
 										if ("Please enter OTP".equals(errorMessage1)) { %>
 									<p>Vui lòng nhập mã OTP.</p>
 									<% } %>
 
 									<% String errorMessage2 = request.getParameter("error");
-										if ("OTP does not match".equals(errorMessage2)) { %>
+										if ("OTP does not match!!".equals(errorMessage2)) { %>
 									<p>OTP không khớp vui lòng nhập lại</p>
 									<% } %>
-
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon"><i

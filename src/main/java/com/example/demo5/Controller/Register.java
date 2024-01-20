@@ -26,13 +26,13 @@ public class Register extends HttpServlet {
         SendEmail sendEmail = new SendEmail();
 
         String username = req.getParameter("username");
-            String password = req.getParameter("password");
-            String repassword = req.getParameter("repassword");
-            String fullname = req.getParameter("fullname");
-            String email = req.getParameter("email");
-            String phonenumber = req.getParameter("phonenumber");
-            String address = req.getParameter("address");
-            String code = sendEmail.OTPCode();
+        String password = req.getParameter("password");
+        String repassword = req.getParameter("repassword");
+        String fullname = req.getParameter("fullname");
+        String email = req.getParameter("email");
+        String phonenumber = req.getParameter("phonenumber");
+        String address = req.getParameter("address");
+        String code = sendEmail.OTPCode();
 
         User user = new User(username, password, fullname, email, phonenumber, address, code);
 
