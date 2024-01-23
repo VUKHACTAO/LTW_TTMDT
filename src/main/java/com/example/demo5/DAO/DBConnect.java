@@ -4,7 +4,6 @@ import java.sql.*;
 
 public class DBConnect {
     String url =  "jdbc:mysql://localhost:3306/daohaisana";
-
     String user = "root";
     String password = "";
 
@@ -36,6 +35,4 @@ public class DBConnect {
             throw new RuntimeException(e);
         }
     }
-
-
 }

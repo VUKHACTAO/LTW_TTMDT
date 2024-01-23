@@ -1,7 +1,8 @@
 package com.example.demo5.Controller;
 
+import com.example.demo5.Model.User;
 import com.example.demo5.Service.UserService;
-import com.example.demo5.Ulit.Check;
+import com.example.demo5.Ulit.SendEmail;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,13 +33,39 @@ public class Register extends HttpServlet {
         String phonenumber = req.getParameter("phonenumber");
         String address = req.getParameter("address");
         String repassword= req.getParameter("repassword");
-        HttpSession session = req.getSession();
-            UserService.insertUser(username,password,email,fullname,address,phonenumber);
-            req.getRequestDispatcher("login.jsp").forward(req,resp);
 
 
+        SendEmail sendEmail = new SendEmail();
+        String code = sendEmail.OTPCode();
 
+        User user = new User(username, password, fullname, email, phonenumber, address, code);
 
+        if (username.isEmpty() || password.isEmpty() || fullname.isEmpty() || email.isEmpty() || phonenumber.isEmpty() || address.isEmpty() || repassword. isEmpty()) {
+            resp.sendRedirect("register.jsp?error=Please fill in all fields");
+        }
 
+        else if (!password.equals(repassword)) {
+            resp.sendRedirect("register.jsp?error=Passwords do not match");
+        }
+
+        else if (UserService.findEmailbyUsername(email)) {
+            resp.sendRedirect("register.jsp?error=Email has already existed in database. Please try again");
+        }
+
+        else if (UserService.findUserbyUsername(username)) {
+            resp.sendRedirect("register.jsp?error=Username has already existed in database. Please try again");
+        }
+
+        // Kiểm tra tính hợp lệ của mk
+        else if(password.length() < 6 && !password.matches(".*[!@#$%^&*()_+\\-={};':\",.<>/?].") || !password.matches(".*[A-Z].*")) {
+            resp.sendRedirect("register.jsp?error=Invalid Password");
+        }
+
+        else {
+            HttpSession session = req.getSession();
+            UserService.insertUser(user);
+            sendEmail.sendEmail(user);
+            resp.sendRedirect("VerifyAccountOTP.jsp?success=Register successful. Please enter OTP code to log in");
+        }
 }
 }

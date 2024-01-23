@@ -23,6 +23,10 @@ public class User implements Serializable {
         this.code = code;
     }
 
+    public User(String email) {
+        this.email = email;
+    }
+
     public int getStatus() {
         return status;
     }

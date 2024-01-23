@@ -1,11 +1,9 @@
-<%@ page import="com.example.demo5.Model.User" %><%--
-  Created by IntelliJ IDEA.
-  User: juant
-  Date: 21/12/2023
-  Time: 17:17
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.example.demo5.Model.User" %>
+
+<%@ page contentType="text/html;charset=UTF-8"%>
+
+
 
 <header>
     <div class="container-fluid">
@@ -51,13 +49,14 @@
             </div>
 
             <div class="col-lg-6 col-6 text-left">
-                <form action="">
+                <form action="search" method="get">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm">
+                        <input name="text" type="text" class="form-control" placeholder="Tìm kiếm sản phẩm">
                         <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
+                            <button type="submit" class="button_search">
+                               Tìm kiếm
+                            </button>
+
                         </div>
                     </div>
                 </form>
@@ -89,40 +88,15 @@
 
                 <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
                     <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                        <div class ="icon_menu" style="display: flex">
-                            <img class="logo"  alt="logo" src="./img/tom.png" width="25px" height="25px" style="margin-top: 5px; margin-left: 6px">
-                            <a href="Tom.html" class="nav-item nav-link">Tôm biển</a>
-                        </div>
 
+                    <% List<Categories> cate = CategoryService.getALL();
+                        for (Categories ct: cate) {
+                            %>
                         <div class ="icon_menu" style="display: flex">
-                            <img class="logo"  alt="logo" src="./img/ca.png" width="25px" height="25px" style="margin-top: 5px; margin-left: 6px">
-                            <a href="Ca.html" class="nav-item nav-link">Cá biển</a>
+                            <img class="logo"  alt="logo" src="<%=ct.getImage()%>" width="25px" height="25px" style="margin-top: 5px; margin-left: 6px">
+                            <a href="category?cid=<%=ct.getId()%>" class="nav-item nav-link"><%=ct.getName()%></a>
                         </div>
-
-                        <div class ="icon_menu" style="display: flex">
-                            <img class="logo"  alt="logo" src="./img/cua.png" width="25px" height="25px" style="margin-top: 5px; margin-left: 6px">
-                            <a href="Cua.html" class="nav-item nav-link">Cua</a>
-                        </div>
-
-                        <div class ="icon_menu" style="display: flex">
-                            <img class="logo"  alt="logo" src="./img/oc.png" width="25px" height="25px" style="margin-top: 5px; margin-left: 6px">
-                            <a href="Ngao_so_oc.html" class="nav-item nav-link">Ngao, sò, ốc</a>
-                        </div>
-
-                        <div class ="icon_menu" style="display: flex">
-                            <img class="logo"  alt="logo" src="./img/muc.png" width="25px" height="25px" style="margin-top: 5px; margin-left: 6px">
-                            <a href="Muc.html" class="nav-item nav-link">Mực</a>
-                        </div>
-
-                        <div class ="icon_menu" style="display: flex">
-                            <img class="logo"  alt="logo" src="./img/donglanh.png" width="25px" height="25px" style="margin-top: 5px; margin-left: 6px">
-                            <a href="" class="nav-item nav-link">Hải sản đông lạnh</a>
-                        </div>
-
-                        <div class ="icon_menu" style="display: flex">
-                            <img class="logo"  alt="logo" src="./img/nhapkhau.png" width="25px" height="25px" style="margin-top: 5px; margin-left: 6px">
-                            <a href="" class="nav-item nav-link">Hải sản Nhập khẩu</a>
-                        </div>
+                        <%}%>
                     </div>
                 </nav>
             </div>
@@ -137,7 +111,7 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
+                            <a href="index.jsp" class="nav-item nav-link active">Trang chủ</a>
                             <a href="shop.html" class="nav-item nav-link">Sản phẩm</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trang</a>
@@ -156,7 +130,7 @@
                         </div>
                        <% }else{%>
                         <div class="navbar-nav ml-auto py-0">
-                        <img class="header-login-user-img" src="<%=a.getLinkImage()%>">
+                        <img class="header-login-user-img" src="<%=a.getLinkImage()%>" alt="">
                         <a href="register.jsp" class="nav-item nav-link"> <%a.getFullname();%></a>
                         </div>
                        <%}%>
@@ -206,4 +180,3 @@
         </div>
     </div>
 </header>
-</html>

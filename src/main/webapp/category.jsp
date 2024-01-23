@@ -1,3 +1,7 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.demo5.Model.Products" %>
+<%@ page import="com.example.demo5.Service.ProductService" %>
+<%@ page import="com.example.demo5.Service.ImgService" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE html>
@@ -28,6 +32,7 @@
     <link rel="stylesheet" href="css/Ngao-so-oc.css">
 </head>
 <body>
+<%List<Products> list= ProductService.getProductByIDCate(2);%>
 <!-- Topbar Start -->
 <div class="container-fluid">
     <div class="row bg-secondary py-2 px-xl-5">
@@ -224,8 +229,6 @@
             <div class="row">
                 <div class="col-12 " aria-label="breadcrumb">
                     <ol class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-                        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="breadcrumb-item"><a href="/" target="_self" itemprop="item"><span itemprop="name">Trang chủ</span></a><meta itemprop="position" content="1"></li>
-                        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="breadcrumb-item"><a href="/collections/all" target="_self" itemprop="item"><span itemprop="name">Danh mục</span></a><meta itemprop="position" content="2"></li>
                         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="breadcrumb-item active"><span itemprop="name">Các Loại Tôm Ngon</span><meta itemprop="position" content="3"></li>
                     </ol>
                 </div>			</div>
@@ -242,20 +245,21 @@
                 <div class="hrv-pmo-coupon" data-hrvpmo-layout="grids"></div>
             </div>
         </div>
+        <% for(Products products:list){%>
         <div class="product__grid item__grid row">
             <div class="col-xl-20th col-lg-20th col-md-4 col-sm-6 col-6 product-loop-new">
 
                 <div class="product__item " data-id="1023173089">
                     <div class="product__item--image">
-                        <a class="productUrl" data-coll-handle="" href="/products/tom-hum-alaska-nho-500g-con"><img class="width-100" width="480" height="480" srcset="//product.hstatic.net/1000030244/product/tom__1__4de45eae08304ee7bcae060d39573670_large.jpg 480w, //product.hstatic.net/1000030244/product/tom__1__4de45eae08304ee7bcae060d39573670_grande.jpg" alt="tom hum alaska nho">
+                        <a class="productUrl" data-coll-handle="" href="/products/tom-hum-alaska-nho-500g-con"><img class="width-100" width="480" height="480" src="<%=ImgService.getLinkImgbyID(products.getIdImage())%>" alt="tom hum alaska nho">
                         </a>
                         <div class="product__item--variant--size">Có 3 lựa chọn</div><div class="tag_icon ratiobox"><img class="heightwidth-auto" width="40" height="40" src="//theme.hstatic.net/1000030244/1001119993/14/icon_tag_3.png?v=1714" alt="sống "></div><div class="tag_icon icon_tag_1 ratiobox"><img class="heightwidth-auto" width="40" height="40" src="//theme.hstatic.net/1000030244/1001119993/14/icon_tag_1.png?v=1714" alt="sống "></div>	</div>
                     <div class="product__item--info">
-                        <h3 class="product__item--title has-sale"><a class="productUrl " data-coll-handle="" href="/products/tom-hum-alaska-nho-500g-con">Tôm Hùm Alaska Nhỏ</a>
+                        <h3 class="product__item--title has-sale"><a class="productUrl " data-coll-handle="" href="/products/tom-hum-alaska-nho-500g-con"><%=products.getNameOfProduct()%></a>
                             <span class="product__item--sale">-19%</span></h3>
 
                         <div class="product__item--price">
-                            <span class="product__item--price--normal">550,000đ<span class="product__item--variant">/ 1 Con</span></span>
+                            <span class="product__item--price--normal"><%=products.getPrice()%><span class="product__item--variant">/ 1 Con</span></span>
                             <del>675,000đ</del>
                             <div class="product__item--action">
 
@@ -286,6 +290,7 @@
             </div>
 
         </div>
+        <%}%>
 
         <section class="isCVH home-feedback">
             <div class="container">	<h2>CẢM ƠN TRIỆU KHÁCH HÀNG</h2>

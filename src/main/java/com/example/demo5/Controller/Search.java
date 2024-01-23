@@ -1,9 +1,7 @@
 package com.example.demo5.Controller;
 
-
-import com.example.demo5.Model.Categories;
-import com.example.demo5.Service.CategoryService;
-
+import com.example.demo5.Model.Products;
+import com.example.demo5.Service.ProductService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,17 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-import java.sql.SQLException;
-
-@WebServlet(urlPatterns = {"/listCatetory"})
-public class Categoties extends HttpServlet {
+@WebServlet("/search")
+public class Search extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
-            CategoryService.FindAll(req, resp);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+        String text = req.getParameter("text");
+        List<Products> list = ProductService.getProductByName(text);
+        req.setAttribute("ListP", list);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
+     }
 }

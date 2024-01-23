@@ -36,15 +36,25 @@ public class NewPassword extends HttpServlet {
 			try {
 				String sql = "update user set password = ? where email = ? ";
 				PreparedStatement pst =   statement.getConnection().prepareStatement(sql);
-				pst.setString(1, (String) session.getAttribute("email"));
-				pst.setString(2, newPassword);
+				pst.setString(1, newPassword);
+				pst.setString(2, (String) session.getAttribute("email"));
 
 				int rowCount = pst.executeUpdate();
-				if (rowCount > 0) {
-					response.sendRedirect("login.jsp");
-				} else {
-					response.sendRedirect("newPassword.jsp");
+
+                if(newPassword.isEmpty()) {
+					response.sendRedirect("newPassword.jsp?error=Please enter all field");
 				}
+				else if(!newPassword.equals(confPassword)) {
+					response.sendRedirect("newPassword.jsp?error=Password does not match");
+				}
+				else if(newPassword.length() < 6 && !newPassword.matches(".*[!@#$%^&*()_+\\-={};':\",.<>/?].") || !newPassword.matches(".*[A-Z].*")) {
+					response.sendRedirect("register.jsp?error=Invalid Password");
+				}
+
+				if(rowCount > 0) {
+					response.sendRedirect("login.jsp");
+				}
+
 
 			} catch (Exception e) {
 				e.printStackTrace();

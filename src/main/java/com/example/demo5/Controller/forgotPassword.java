@@ -19,30 +19,29 @@ public class forgotPassword extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		User user = new User();
 
-		try (PrintWriter out = response.getWriter()) {
-			// Lấy email từ form
-			String userEmail = request.getParameter("email");
+		// Lấy email từ form
+		String userEmail = request.getParameter("email");
+		User user = new User(userEmail);
 
-			// Kiểm tra email có trong cơ sở dữ liệu hay không
-			if (UserService.findUserbyEmail(userEmail)) {
-				// Tạo và lưu mã OTP vào session
-				HttpSession session = request.getSession();
-				session.setAttribute("email", userEmail);
-				sendEmail.OTPCode();
+		// Kiểm tra email có trong cơ sở dữ liệu hay không
+		if (UserService.findEmailbyUsername(userEmail)) {
+			// Tạo và lưu mã OTP vào session
+			HttpSession session = request.getSession();
+			session.setAttribute("email", userEmail);
+			sendEmail.OTPCode();
 
-				// Gửi email chứa mã OTP
-				sendEmail.resetPassword(user);
+			// Gửi email chứa mã OTP
+			sendEmail.resetPassword(user);
 
-				// Chuyển hướng đến trang nhập OTP
-				response.sendRedirect("EnterOtp.jsp");
+			// Chuyển hướng đến trang nhập OTP
+			response.sendRedirect("EnterOtp.jsp");
+
 			} else {
 				// Trường hợp email không hợp lệ
-				out.println("Email không tồn tại trong cơ sở dữ liệu.");
+			response.sendRedirect("forgotPassword.jsp?error=Email does not exist");
 			}
 		}
-	}
 
 	public static void main(String[] args) {
 		System.out.println();
