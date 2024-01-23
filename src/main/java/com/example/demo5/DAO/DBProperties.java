@@ -13,23 +13,29 @@ public class DBProperties {
            throw new RuntimeException(e);
        }
     }
-    public static String host(){
-        return pro.getProperty("db.host").toString();
+    public static String dbHost(){
+        return pro.get("db.host").toString();
     }
-    public static String port(){
-        return pro.getProperty("db.port").toString();
+    public static String dbPort(){
+        return pro.get("db.port").toString();
     }
-    public static String pass(){
-        return pro.getProperty("db.pass").toString();
+    public static String dbUsername(){
+        return pro.get("db.username").toString();
     }
-    public static String user(){
-        return pro.getProperty("db.user").toString();
+    public static String dbPassowrd(){
+        return pro.get("db.password").toString();
     }
-    public static String name(){
-        return pro.getProperty("db.name").toString();
+
+    public static String dbDatabaseName(){
+        return pro.get("db.databaseName").toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(DBProperties.host());
+        System.out.println(DBProperties.dbHost());
+        System.out.println(DBProperties.dbPort());
+        System.out.println(DBProperties.dbUsername());
+        System.out.println(DBProperties.dbPassowrd());
+        System.out.println(DBProperties.dbDatabaseName());
+
     }
 }

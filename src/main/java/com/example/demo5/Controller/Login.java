@@ -16,21 +16,22 @@ public class Login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username1 = request.getParameter("userName");
-        String pass = request.getParameter("pass1");
-        if(UserService.findUserbyUsername(username1)){
-            if(UserService.getPasswordbyUsername(username1).equals(Encode.checkksum(pass))){
-                request.getRequestDispatcher("Trangchinh.jsp").forward(request, response);
+        String username1 = request.getParameter("username");
+        String pass = request.getParameter("password");
+
+        if (username1.isEmpty() || pass.isEmpty()) {
+            response.sendRedirect("login.jsp?error=Please enter all field!!");
+        } else if (UserService.findUserbyUsername(username1)) {
+            if (UserService.getPasswordbyUsername(username1).equals(pass)) {
+                response.sendRedirect("Trangchinh.jsp");
             }
-
-        }else {
-            response.sendRedirect("login.jsp");
+        } else {
+            response.sendRedirect("login.jsp?error=Username or Password is incorrect.Please try again!!");
         }
-
     }
 }
+

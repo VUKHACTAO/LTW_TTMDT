@@ -1,4 +1,4 @@
-
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,13 +45,23 @@
 								<form id="register-form" action="VerifyOTP" role="form" autocomplete="off"
 									class="form" method="post">
 
+									<% String errorMessage1 = request.getParameter("error");
+										if ("Please enter OTP".equals(errorMessage1)) { %>
+									<p>Vui lòng nhập mã OTP.</p>
+									<% } %>
+
+									<% String errorMessage2 = request.getParameter("error");
+										if ("OTP does not match!!".equals(errorMessage2)) { %>
+									<p>OTP không khớp vui lòng nhập lại</p>
+									<% } %>
+
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon"><i
 												class="glyphicon glyphicon-envelope color-blue"></i></span> <label
 												for="opt"></label><input
 												id="opt" name="otp" placeholder="Enter OTP"
-												class="form-control" type="text" required="required">
+												class="form-control" type="text">
 										</div>
 									</div>
 									<div class="form-group">

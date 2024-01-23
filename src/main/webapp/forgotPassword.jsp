@@ -1,11 +1,6 @@
-<%@ page import="java.io.*,java.util.*" %>
-<%@ page import="javax.mail.*,javax.mail.internet.*,javax.activation.*" %>
-<%@ page import="javax.mail.Authenticator" %>
-<%@ page import="javax.mail.PasswordAuthentication" %>
-<%@ page import="javax.mail.Session" %>
-<%@ page import="javax.mail.Transport" %>
-<%@ page import="java.util.Properties" %>
-<%@ page import="java.util.Random" %>
+
+<%@ page contentType="text/html;charset=UTF-8" %>
+
 
 <% String email = String.valueOf(request.getAttribute("email"));%>
 
@@ -81,10 +76,20 @@ body {
 					</ol>
 				</div>
 				<form class="card mt-4" action="forgotPassword" method="POST">
+					<% String errorMessage1 = request.getParameter("error");
+						if ("Email does not exist".equals(errorMessage1)) { %>
+					<p>Email không tồn tại trong cơ sở dữ liệu.</p>
+					<% } %>
+
+					<% String errorMessage2 = request.getParameter("error");
+						if ("Please enter email address".equals(errorMessage2)) { %>
+					<p>Vui lòng nhập địa chỉ Email.</p>
+					<% } %>
+
 					<div class="card-body">
 						<div class="form-group">
 							<label for="email-for-pass">Enter your email address</label> <input
-								class="form-control" type="text" name="email" id="email-for-pass" required=""><small
+								class="form-control" type="text" name="email" id="email-for-pass" ><small
 								class="form-text text-muted">Enter the registered email address . Then we'll
 								email a OTP to this address.</small>
 						</div>

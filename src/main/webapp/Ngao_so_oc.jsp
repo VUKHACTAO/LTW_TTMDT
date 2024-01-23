@@ -110,7 +110,7 @@
         <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
           <div class ="icon_menu" style="display: flex">
             <img class="logo"  alt="logo" src="./img/tom.png" width="25px" height="25px" style="margin-top: 5px; margin-left: 6px">
-            <a href="Tom.jsp" class="nav-item nav-link">Tôm biển</a>
+            <a href="category.jsp" class="nav-item nav-link">Tôm biển</a>
           </div>
 
           <div class ="icon_menu" style="display: flex">

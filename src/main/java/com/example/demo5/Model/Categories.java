@@ -1,21 +1,23 @@
 package com.example.demo5.Model;
 
 public class Categories {
-    private String id, name;
-    public Categories(String id, String name) {
+    private int id;
+    private String  name, image;
+    public Categories(int id, String name, String image) {
         this.id = id;
         this.name = name;
+        this.image = image;
     }
 
     public Categories() {
 
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -27,11 +29,20 @@ public class Categories {
         this.name = name;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "Categories{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", image='" + image + '\''+
                 '}';
     }
 }

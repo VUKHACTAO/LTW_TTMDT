@@ -1,11 +1,6 @@
-<%@ page import="java.io.*,java.util.*" %>
-<%@ page import="javax.mail.*,javax.mail.internet.*,javax.activation.*" %>
-<%@ page import="javax.mail.Authenticator" %>
-<%@ page import="javax.mail.PasswordAuthentication" %>
-<%@ page import="javax.mail.Session" %>
-<%@ page import="javax.mail.Transport" %>
-<%@ page import="java.util.Properties" %>
-<%@ page import="java.util.Random" %>
+
+<%@ page contentType="text/html;charset=UTF-8" %>
+
 
 <%
 		String userEmail = (String) session.getAttribute("userEmail");
@@ -34,7 +29,8 @@
 </head>
 <body oncontextmenu='return false' class='snippet-body bg-info'>
 	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
+		href="
+		https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
 	<div>
 		<!-- Container containing all contents -->
 		<div class="container">
@@ -50,6 +46,21 @@
 						</div>
 						<div class="pt-3 pb-3">
 							<form class="form-horizontal" action="newPassword" method="POST">
+
+								<% String errorMessage1 = request.getParameter("error");
+									if ("Please enter all field".equals(errorMessage1)) { %>
+								<p>Vui lòng nhập đầy đủ các trường.</p>
+								<% } %>
+
+								<% String errorMessage2 = request.getParameter("error");
+									if ("Password does not match".equals(errorMessage2)) { %>
+								<p>Mật khẩu không khớp vui lòng nhập lại</p>
+								<% } %>
+
+								<% String errorMessage3= request.getParameter("error");
+									if ("Invalid Password".equals(errorMessage3)) { %>
+								<p>Mật khẩu không khớp vui lòng nhập lại</p>
+								<% } %>
 								<!-- User Name Input -->
 								<div class="form-group row justify-content-center px-3">
 									<div class="col-9 px-0">

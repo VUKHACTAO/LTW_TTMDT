@@ -1,18 +1,22 @@
 package com.example.demo5.Model;
 
 public class Images {
-    private String id, linkImage;
+    private int id;
+    private String linkImage;
 
-    public Images(String id, String linkImage) {
+    public Images(int id, String linkImage) {
         this.id = id;
         this.linkImage = linkImage;
     }
 
-    public String getId() {
-        return id;
+    public Images() {
     }
 
-    public void setId(String id) {
+    public int getId() {
+        return  id;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -15,9 +15,9 @@ public class JDBiConnector {
 
      private static void makeConnect() {
          MysqlDataSource data = new MysqlDataSource();
-         data.setURL("jdbc:mysql://" + DBProperties.dbHost() + ":" + DBProperties.dbPort() + "/" + DBProperties.DBName());
+         data.setURL("jdbc:mysql://" + DBProperties.dbHost() + ":" + DBProperties.dbPort() + "/" + DBProperties.dbDatabaseName());
          data.setUser(DBProperties.dbUsername());
-         data.setPassword(DBProperties.dbPassword());
+         data.setPassword(DBProperties.dbPassowrd());
 
          try {
              data.setAutoReconnect(true);

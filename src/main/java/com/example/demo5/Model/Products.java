@@ -2,20 +2,34 @@
 package com.example.demo5.Model;
 
 public class Products {
-    private String id, idImage, idSupplier, idCategories, nameOfProduct;
-    private double originSellingPrice, actualSellingPrice;
-    private String unit, bundledGifts;
+    private String id, idSupplier, idCategories, nameOfProduct;
 
-    public Products(String id, String idImage, String idSupplier, String idCategories, String nameOfProduct, double originSellingPrice, double actualSellingPrice, String unit, String bundledGifts) {
+    private int idImage;
+
+    private double price;
+    private String unit;
+
+    public Products(String id, int idImage, String idSupplier, String idCategories, String nameOfProduct, double price, String unit) {
         this.id = id;
         this.idImage = idImage;
         this.idSupplier = idSupplier;
         this.idCategories = idCategories;
         this.nameOfProduct = nameOfProduct;
-        this.originSellingPrice = originSellingPrice;
-        this.actualSellingPrice = actualSellingPrice;
+        this.price = price;
         this.unit = unit;
-        this.bundledGifts = bundledGifts;
+    }
+
+    public Products() {
+    }
+
+    public Products(String id, String idSupplier, String idCategories, String nameOfProduct, int idImage, double price, String unit) {
+        this.id = id;
+        this.idSupplier = idSupplier;
+        this.idCategories = idCategories;
+        this.nameOfProduct = nameOfProduct;
+        this.idImage = idImage;
+        this.price = price;
+        this.unit = unit;
     }
 
     public String getId() {
@@ -24,14 +38,6 @@ public class Products {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getIdImage() {
-        return idImage;
-    }
-
-    public void setIdImage(String idImage) {
-        this.idImage = idImage;
     }
 
     public String getIdSupplier() {
@@ -58,20 +64,20 @@ public class Products {
         this.nameOfProduct = nameOfProduct;
     }
 
-    public double getOriginSellingPrice() {
-        return originSellingPrice;
+    public int getIdImage() {
+        return idImage;
     }
 
-    public void setOriginSellingPrice(double originSellingPrice) {
-        this.originSellingPrice = originSellingPrice;
+    public void setIdImage(int idImage) {
+        this.idImage = idImage;
     }
 
-    public double getActualSellingPrice() {
-        return actualSellingPrice;
+    public double getPrice() {
+        return price;
     }
 
-    public void setActualSellingPrice(double actualSellingPrice) {
-        this.actualSellingPrice = actualSellingPrice;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getUnit() {
@@ -82,26 +88,16 @@ public class Products {
         this.unit = unit;
     }
 
-    public String getBundledGifts() {
-        return bundledGifts;
-    }
-
-    public void setBundledGifts(String bundledGifts) {
-        this.bundledGifts = bundledGifts;
-    }
-
     @Override
     public String toString() {
         return "Products{" +
                 "id='" + id + '\'' +
-                ", idImage='" + idImage + '\'' +
                 ", idSupplier='" + idSupplier + '\'' +
                 ", idCategories='" + idCategories + '\'' +
                 ", nameOfProduct='" + nameOfProduct + '\'' +
-                ", originSellingPrice=" + originSellingPrice +
-                ", actualSellingPrice=" + actualSellingPrice +
+                ", idImage=" + idImage +
+                ", price=" + price +
                 ", unit='" + unit + '\'' +
-                ", bundledGifts='" + bundledGifts + '\'' +
                 '}';
     }
 }
