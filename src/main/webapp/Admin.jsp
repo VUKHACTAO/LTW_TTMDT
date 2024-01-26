@@ -1,3 +1,5 @@
+<%@ page import="com.mysql.cj.Session" %>
+<%@ page import="com.example.demo5.Model.User" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
@@ -29,8 +31,13 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
+        <% User user = (User) request.getSession().getAttribute("user");%>
+
+
+
         <!-- Sidebar -->
         <jsp:include page="CotAdmin.jsp"></jsp:include>
+
 <%--        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">--%>
 
 <%--            <!-- Sidebar - Brand -->--%>

@@ -52,53 +52,59 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">THEM DANH MUC</h1>
-
-
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
 
-                        <form action="addCategories" type="post">
+                        <form action="/addcate" method="post">
+
                             <div class="mb-3" >
                                 <label for="tendanhmuc" class="form-label" >Ten Danh Muc</label>
                                 <input name="tendanhmuc" type="text" class="form-control" id="tendanhmuc" >
                             </div>
+
                             <div class="mb-3" >
                                 <label for="linkhinhanh" class="form-label" >Hinh anh</label>
-                                <input name="linkhinhanh" type="file" class="form-control" id="linkhinhanh" >
+                                <input name="linkhinhanh" type="text" class="form-control" id="linkhinhanh" >
                             </div>
+                            <%String status = (String) request.getSession().getAttribute("status2");%>
+                            <%if(status=="Done"){%>
+                            <h3 style="color: #0f6848">Them danh muc thanh cong!</h3>
+                            <%}if(status=="Err"){%>
+                            <h3 style="color: red">Danh muc da ton tai!</h3>
+                            <%}%>
                             <button type="submit" class="btn btn-primary" style="float: right; width: 200px; margin-right: 500px; margin-bottom: 100px; padding: 20px 20px" >THEM DANH MUC</button>
                         </form>
                     </div>
 
                 </div>
                 <hr>
-                <div class="container-fluid">
+<%--                <div class="container-fluid">--%>
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">THEM NHA CUNG CAP</h1>
+<%--                    <!-- Page Heading -->--%>
+<%--                    <h1 class="h3 mb-2 text-gray-800">THEM NHA CUNG CAP</h1>--%>
 
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
+<%--                    <!-- DataTales Example -->--%>
+<%--                    <div class="card shadow mb-4">--%>
 
-                        <form action="addSupplier" type="post">
-                            <div class="mb-3" >
-                                <label for="tenncc" class="form-label" >Ten Nha Cung Cap</label>
-                                <input name="tendanhmuc" type="text" class="form-control" id="tenncc" >
-                            </div>
-                            <div class="mb-3" >
-                                <label for="diachi" class="form-label" >Dia chi</label>
-                                <input name="diachi" type="text" class="form-control" id="diachi" >
-                            </div>
-                            <div class="mb-3" >
-                                <label for="phone" class="form-label" >Dia chi</label>
-                                <input name="diachi" type="text" class="form-control" id="phone" >
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="float: right; width: 200px; margin-right: 500px; margin-bottom: 100px; padding: 20px 20px" >THEM DANH MUC</button>
-                        </form>
-                    </div>
+<%--                        <form action="" type="post">--%>
+<%--                            <div class="mb-3" >--%>
+<%--                                <label for="tenncc" class="form-label" >Ten Nha Cung Cap</label>--%>
+<%--                                <input name="tennhacungcap" type="text" class="form-control" id="tenncc" >--%>
+<%--                            </div>--%>
+<%--                            <div class="mb-3" >--%>
+<%--                                <label for="diachi" class="form-label" >Dia chi</label>--%>
+<%--                                <input name="diachincc" type="text" class="form-control" id="diachi" >--%>
+<%--                            </div>--%>
+<%--                            <div class="mb-3" >--%>
+<%--                                <label for="phone" class="form-label" >Sodienthoai</label>--%>
+<%--                                <input name="sodienthoai" type="text" class="form-control" id="phone" >--%>
+<%--                            </div>--%>
+<%--                            <button type="submit" class="btn btn-primary" style="float: right; width: 200px; margin-right: 500px; margin-bottom: 100px; padding: 20px 20px" >THEM DANH MUC</button>--%>
+<%--                        </form>--%>
+<%--                    </div>--%>
 
-                </div>
+<%--                </div>--%>
                 <!-- /.container-fluid -->
 
             </div>

@@ -4,6 +4,10 @@
 <%@ page import="com.example.demo5.Service.ImgService" %>
 <%@ page import="com.example.demo5.Model.Categories" %>
 <%@ page import="com.example.demo5.Service.CategoryService" %>
+<%@ page import="com.example.demo5.Ulit.Format" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="com.example.demo5.Model.Cart" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE html>
@@ -37,9 +41,12 @@
 </head>
 
 <body>
+
 <!-- Topbar Start -->
 <%@include file="Header.jsp" %>
 <!-- Topbar End -->
+<%Cart cart = new Cart();%>
+<%session.setAttribute("cart", cart);%>
 
 
 <!-- Navbar Start -->
@@ -83,6 +90,7 @@
 
 
 <!-- Categories Start -->
+<!-- Categories Start -->
 <div class="container-xl">
     <div class="row">
         <div class="col-md-12">
@@ -94,21 +102,26 @@
                     <li data-target="#myCarousel" data-slide-to="1"></li>
                     <li data-target="#myCarousel" data-slide-to="2"></li>
                 </ol>
+                <%List<Products> products = ProductService.getAllProduct();%>
 
                 <!-- Wrapper for carousel items -->
                 <div class="carousel-inner">
                     <div class="item carousel-item active">
                         <div class="row">
+                            <%
+                                if (!products.isEmpty()){
+                                    for (Products p:products){%>
+                            <%session.setAttribute("id_product", p.getId());%>
                             <div class="col-sm-3">
                                 <div class="thumb-wrapper">
                                         <span class="wish-icon">
                                             <i class="fa-regular fa-heart" style="color: #e2036f;"></i>
                                         </span>
                                     <div class="img-box">
-                                        <img src="img/img_cua.jpg" class="img-fluid" alt="">
+                                        <img src="<%= ImgService.getLinkImgbyID(p.getIdImage())%>" class="img-fluid" alt="">
                                     </div>
                                     <div class="thumb-content">
-                                        <h4>Cua Hoàng Đế</h4>
+                                        <h4><%=p.getNameOfProduct()%></h4>
                                         <div class="star-rating">
                                             <ul class="list-inline">
                                                 <li class="list-inline-item"><i class="fa-solid fa-star"
@@ -124,143 +137,24 @@
                                             </ul>
                                         </div>
                                         <p class="item-price"><span
-                                                style="text-decoration: line-through;">400.00đ</span> <b>250.00đ/kg</b>
+                                                style="text-decoration: line-through;"><%=p.getPrice()%></span>
                                         </p>
-                                        <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                        <a href="addCart?id_product=<%=p.getId()%>" class="btn btn-primary">Thêm vào giỏ hàng</a>
                                     </div>
                                 </div>
                             </div>
+                            <%   }
+                            }
+                            %>
 
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                        <span class="wish-icon">
-                                            <i class="fa-regular fa-heart" style="color: #e2036f;"></i>
-                                        </span>
-                                    <div class="img-box">
-                                        <img src="img/bao_ngu.jpg" class="img-fluid" alt="oc">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Bào ngư Hàn Quốc</h4>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                            </ul>
-                                        </div>
-                                        <p class="item-price"><span
-                                                style="text-decoration: line-through;">110.000đ</span>
-                                            <b>95.000đ/con</b></p>
-                                        <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                        <span class="wish-icon">
-                                            <i class="fa-regular fa-heart" style="color: #e2036f;"></i>
-                                        </span>
-                                    <div class="img-box">
-                                        <img src="img/tom-cang-xanh.jpg" class="img-fluid" alt="Macbook">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Tôm Càng Xanh</h4>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                            </ul>
-                                        </div>
-                                        <p class="item-price"><span
-                                                style="text-decoration: line-through;">425.000đ</span>
-                                            <b>329.000đ/kg</b></p>
-                                        <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                        <span class="wish-icon">
-                                            <i class="fa-regular fa-heart" style="color: #e2036f;"></i>
-                                        </span>
-                                    <div class="img-box">
-                                        <img src="img/oc_img.jpg" class="img-fluid" alt="Nikon">
-                                    </div>
-
-                                    <div class="thumb-content">
-                                        <h4>Ốc Hương Sống</h4>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                            </ul>
-                                        </div>
-                                        <p class="item-price"><span
-                                                style="text-decoration: line-through;">275.000</span> <b>180.000đ/kg</b>
-                                        </p>
-                                        <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="item carousel-item">
                         <div class="row">
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                        <span class="wish-icon">
-                                            <i class="fa-regular fa-heart" style="color: #e2036f;"></i>
-                                        </span>
-                                    <div class="img-box">
-                                        <img src="img/mat_ca_ngu.jpg" class="img-fluid" alt="Play Station">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Mắt Cá ngừ</h4>
-                                        <p class="item-price"><span
-                                                style="text-decoration: line-through;">119.000đ</span>
-                                            <span>79.000đ/kg</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                            </ul>
-                                        </div>
-                                        <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
-                                    </div>
-                                </div>
-                            </div>
+                            <%
+                                if (!products.isEmpty()){
+                                    for (Products p:products){%>
+
 
                             <div class="col-sm-3">
                                 <div class="thumb-wrapper">
@@ -268,77 +162,13 @@
                                             <i class="fa-regular fa-heart" style="color: #e2036f;"></i>
                                         </span>
                                     <div class="img-box">
-                                        <img src="img/muc_sua.png" class="img-fluid" alt="Macbook">
+                                        <img src="<%= ImgService.getLinkImgbyID(p.getIdImage())%>>" class="img-fluid" alt="Play Station">
                                     </div>
                                     <div class="thumb-content">
-                                        <h4>Mực Sữa</h4>
+                                        <h4><%=p.getNameOfProduct()%></h4>
                                         <p class="item-price"><span
-                                                style="text-decoration: line-through;">145.000đ</span>
-                                            <span>99.000đ/kg</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                            </ul>
-                                        </div>
-                                        <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
-                                    </div>
-                                </div>
-                            </div>
+                                                style="color: #0f0f0f; font-weight: bold"><%=Format.fomatCurrency(p.getPrice())%> </span>
 
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                        <span class="wish-icon">
-                                            <i class="fa-regular fa-heart" style="color: #e2036f;"></i>
-                                        </span>
-                                    <div class="img-box">
-                                        <img src="img/tom_tuoi.jpg" class="img-fluid" alt="Speaker">
-                                    </div>
-
-                                    <div class="thumb-content">
-                                        <h4>Tôm Tươi</h4>
-                                        <p class="item-price"><span
-                                                style="text-decoration: line-through;">66.000đ</span>
-                                            <span>49.000đ/250g</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-solid fa-star"
-                                                                                style="color: #ffdd00;"></i></li>
-                                                <li class="list-inline-item"><i class="fa-regular fa-star"
-                                                                                style="color: #000000;"></i></li>
-                                            </ul>
-                                        </div>
-                                        <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                        <span class="wish-icon">
-                                            <i class="fa-regular fa-heart" style="color: #e2036f;"></i>
-                                        </span>
-                                    <div class="img-box">
-                                        <img src="img/ca_mu.jpg" class="img-fluid" alt="Galaxy">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Cá mú</h4>
-                                        <p class="item-price"><span
-                                                style="text-decoration: line-through;">299.000đ</span>
-                                            <span>250.000đ/kg</span></p>
                                         <div class="star-rating">
                                             <ul class="list-inline">
                                                 <li class="list-inline-item"><i class="fa-solid fa-star"
@@ -353,10 +183,13 @@
                                                                                 style="color: #ffdd00;"></i></li>
                                             </ul>
                                         </div>
-                                        <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                        <a href="addCart?id_product=<%=p.getId()%>" class="btn btn-primary">Thêm vào giỏ hàng</a>
                                     </div>
                                 </div>
                             </div>
+                            <%   }
+                            }
+                            %>
                         </div>
                     </div>
 
@@ -374,69 +207,59 @@
     </div>
 </div>
 <!-- Categories End -->
+<!-- Categories End -->
 
 
 <section class="home-product">
     <div class="container">
-
         <div class="widget widget-product">
-            <%
-
-                List<Categories> categories = CategoryService.getALL();
-
-                for (Categories cate: categories) {
-                    List<Products> products = ProductService.getProductByIDCate(cate.getId());
-
-            %>
             <div class="widget-header">
                 <h2 class="widget-title">
-                    <%=cate.getName()%>
+                    Tôm biển
                 </h2>
                 <a href="Tom.html" class="readmore ml-auto">
                     Xem tất cả<i class="fa fa-angle-right" aria-hidden="true"></i>
-
                 </a>
             </div>
             <div class="widget-content">
                 <div class="list-product row">
                     <%
-                        for (Products product100: products) {
                         if (!products.isEmpty()){
-                            %>
+                            for (Products p:products){%>
+
                     <div class="col-md-2 col-6">
                         <div class="product">
-                            <a href="detail.html" class="product-thumbnail" title="<%= product100.getNameOfProduct() %>">
-                                <img width="150" height="150" src="<%= ImgService.getLinkImgbyID(product100.getIdImage()) %>"
+                            <a href="detail.html" class="product-thumbnail" title="<%= p.getNameOfProduct() %>">
+                                <img width="150" height="150" src="<%= ImgService.getLinkImgbyID(p.getIdImage()) %>"
                                      class="attachment-thumbnail size-thumbnail wp-post-image entered lazyloaded" alt=""
                                      decoding="async" />
                             </a>
                             <h3 class="product-title">
-                                <a href="detail.html" title="<%= product100.getNameOfProduct() %>">
-                                    <%= product100.getNameOfProduct() %>
+                                <a href="detail.html" title="<%= p.getNameOfProduct() %>">
+                                    <%= p.getNameOfProduct() %>
                                 </a>
                             </h3>
                             <div class="product-info">
                                     <span class="product-price">
-                                        <%= product100.getPrice() %> <sup>đ</sup>
-                                        / <span class="unit"><%= product100.getUnit() %></span>
+                                        <%= Format.fomatCurrency(p.getPrice())  %> <sup>đ</sup>
+                                        / <span class="unit"><%= p.getUnit() %></span>
                                     </span>
+
                             </div>
-                            <a href="https://haisan.online/san-pham/tom-mu-ni" class="add-to-cart-link">
-                                Thêm vào giỏ <span class="icon-cart"></span>
-                            </a>
+                            <div class="col">
+                                <a href="/addCart?id=<%=p.getId()%>" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                            </div>
                         </div>
                     </div>
-
+                    <%   }
+                    }
+                    %>
                 </div>
             </div>
         </div>
-        <%   }
-        }
-        }
 
-        %>
+
     </div>
-
 </section>
 <br>
 
@@ -461,7 +284,7 @@
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-dark mb-2" href="index.jsp"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
                         <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Sản phẩm</a>
-                        <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Giỏ hàng</a>
+                        <a class="text-dark mb-2" href="cart.jsp"><i class="fa fa-angle-right mr-2"></i>Giỏ hàng</a>
                         <a class="text-dark mb-2" href="checkout.html"><i class="fa fa-angle-right mr-2"></i>Thủ tục
                             thanh toán</a>
                         <a class="text-dark" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Liên Hệ</a>
@@ -472,7 +295,7 @@
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-dark mb-2" href="index.jsp"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
                         <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Sản phẩm</a>
-                        <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Giỏ hàng</a>
+                        <a class="text-dark mb-2" href="cart.jsp"><i class="fa fa-angle-right mr-2"></i>Giỏ hàng</a>
                         <a class="text-dark mb-2" href="checkout.html"><i class="fa fa-angle-right mr-2"></i>Thủ tục
                             thanh toán</a>
                         <a class="text-dark" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Liên hệ</a>

@@ -1,3 +1,11 @@
+<%@ page import="com.example.demo5.Model.Products" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.demo5.Service.ProductService" %>
+<%@ page import="com.example.demo5.Ulit.Format" %>
+<%@ page import="com.example.demo5.Service.SupplierService" %>
+<%@ page import="com.example.demo5.Service.ImgService" %>
+<%@ page import="com.example.demo5.Model.Product_Detail" %>
+<%@ page import="com.example.demo5.Service.ProductDetailService" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
@@ -38,6 +46,7 @@
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
+            <%List<Products> list= ProductService.getAllProduct();%>
 
             <!-- Main Content -->
             <div id="content">
@@ -73,130 +82,45 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Tên sản phẩm</th>
-                                        <th>Giá trước giảm giá(đ/kg)</th>
-                                        <th>Giá sau giảm giá</th>
-                                        <th>Số lượng đã bán ra</th>
-                                        <th>Hình ảnh</th>
+                                        <th>Giá nhap</th>
+                                        <th>Giá ban</th>
+                                        <th>Nha cung cap</th>
+                                        <th>Hinh anh</th>
+                                        <th>So luong</th>
                                         <th>Trạng thái</th>
                                         <th>Chỉnh sửa</th>
-
-
                                     </tr>
                                     </thead>
 
                                     <tbody>
+                                    <%for(Products products:list){%>
                                     <tr>
-                                        <td>#1</td>
-                                        <td>Tôm Hùm</td>
-                                        <td>
-                                            500.000
+
+                                        <td><%=products.getId()%></td>
+                                        <td><%=products.getNameOfProduct()%></td>
+                                        <td><%=Format.fomatCurrency(products.getInputprice())%>
                                         </td>
 
-                                        <td>350.000</td>
-                                        <td>1.500 </td>
-                                        <td><img src="img/tomhum.webp" width="100px" height="100px"></td>
-                                        <td>  <i class="fa-regular fa-eye"></i> </td>
+                                        <td><%=Format.fomatCurrency(products.getPrice())%></td>
+                                        <td><%=SupplierService.getSupbyID(products.getIdSupplier()).getSupplierName()%> </td>
+                                        <td><img src="<%=ImgService.getLinkImgbyID(products.getIdImage())%>" width="100px" height="100px"></td>
+                                        <td><%=ProductDetailService.getProDDbyId(products.getId()).getInventoryQuantity()%></td>
+                                        <td>
+                                            <%if(ProductDetailService.getProDDbyId(products.getId()).getStatus()==0 || ProductDetailService.getProDDbyId(products.getId()).getInventoryQuantity()==0){%>
+                                            <p style="color:red;">Het hang</p>
+
+                                            <%}else{%>
+                                            <p style="color:green">Con hang</p>
+                                           <% }%>
+                                        </td>
 
                                         <td >
                                             <i class="fa-solid fa-pen" style="color: green"></i>
                                             <i class="fa-solid fa-delete-left" style="color: green"></i></td>
+
                                     </tr>
-                                    <tr>
-                                        <td>#2</td>
-                                        <td>Mực ống</td>
-                                        <td>
-                                            200.000
-                                        </td>
+                                    <%}%>
 
-                                        <td>150.000</td>
-                                        <td>120 </td>
-                                        <td><img src="img/Muc-ong.jpg" width="100px" height="100px"></td>
-                                        <td>  <i class="fa-regular fa-eye"></i> </td>
-
-                                        <td >
-                                            <i class="fa-solid fa-pen" style="color: green"></i>
-                                            <i class="fa-solid fa-delete-left" style="color: green"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#3</td>
-                                        <td>Tôm Tít</td>
-                                        <td>
-                                            500.000
-                                        </td>
-
-                                        <td>250.000</td>
-                                        <td>1.500 </td>
-                                        <td><img src="img/tomtit.webp" width="100px" height="100px"></td>
-                                        <td>  <i class="fa-regular fa-eye"></i> </td>
-
-                                        <td >
-                                            <i class="fa-solid fa-pen" style="color: green"></i>
-                                            <i class="fa-solid fa-delete-left" style="color: green"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#4</td>
-                                        <td>Tôm Hùm</td>
-                                        <td>
-                                            500.000
-                                        </td>
-
-                                        <td>350.000</td>
-                                        <td>1.500 </td>
-                                        <td><img src="img/tomhum.webp" width="100px" height="100px"></td>
-                                        <td>  <i class="fa-regular fa-eye"></i> </td>
-
-                                        <td >
-                                            <i class="fa-solid fa-pen" style="color: green"></i>
-                                            <i class="fa-solid fa-delete-left" style="color: green"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#5</td>
-                                        <td>Tôm Hùm</td>
-                                        <td>
-                                            500.000
-                                        </td>
-
-                                        <td>350.000</td>
-                                        <td>1.500 </td>
-                                        <td><img src="img/tomhum.webp" width="100px" height="100px"></td>
-                                        <td>  <i class="fa-regular fa-eye"></i> </td>
-
-                                        <td >
-                                            <i class="fa-solid fa-pen" style="color: green"></i>
-                                            <i class="fa-solid fa-delete-left" style="color: green"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#6</td>
-                                        <td>Tôm Hùm</td>
-                                        <td>
-                                            500.000
-                                        </td>
-
-                                        <td>350.000</td>
-                                        <td>1.500 </td>
-                                        <td><img src="img/tomhum.webp" width="100px" height="100px"></td>
-                                        <td>  <i class="fa-regular fa-eye"></i> </td>
-
-                                        <td >
-                                            <i class="fa-solid fa-pen" style="color: green"></i>
-                                            <i class="fa-solid fa-delete-left" style="color: green"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#7</td>
-                                        <td>Tôm Hùm</td>
-                                        <td>
-                                            500.000
-                                        </td>
-
-                                        <td>350.000</td>
-                                        <td>1.500 </td>
-                                        <td><img src="img/tomhum.webp" width="100px" height="100px"></td>
-                                        <td>  <i class="fa-regular fa-eye"></i> </td>
-
-                                        <td >
-                                            <i class="fa-solid fa-pen" style="color: green"></i>
-                                            <i class="fa-solid fa-delete-left" style="color: green"></i></td>
-                                    </tr>
 
 
                                     </tbody>

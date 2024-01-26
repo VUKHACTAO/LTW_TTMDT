@@ -3,14 +3,12 @@ package com.example.demo5.Model;
 public class Voucher {
     private String id;
     private double discount;
-    private int quantity;
-    private String expiryDate;
+    private int status;
 
-    public Voucher(String id, double discount, int quantity, String expiryDate) {
+    public Voucher(String id, double discount, int status) {
         this.id = id;
         this.discount = discount;
-        this.quantity = quantity;
-        this.expiryDate = expiryDate;
+        this.status = status;
     }
 
     public String getId() {
@@ -29,20 +27,12 @@ public class Voucher {
         this.discount = discount;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getStatus() {
+        return status;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getExpiryDate() {
-        return expiryDate;
-    }
-
-    public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @Override
@@ -50,8 +40,10 @@ public class Voucher {
         return "Voucher{" +
                 "id='" + id + '\'' +
                 ", discount=" + discount +
-                ", quantity=" + quantity +
-                ", expiryDate='" + expiryDate + '\'' +
+                ", status=" + status +
                 '}';
+    }
+
+    public Voucher() {
     }
 }

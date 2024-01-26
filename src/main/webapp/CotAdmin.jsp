@@ -54,7 +54,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link collapsed" href="" >
+    <a class="nav-link collapsed" href="Quanlydonhang.jsp" >
       <i class="fa-solid fa-clipboard"></i>
       <span>Quản Lý Hóa Đơn</span>
     </a>

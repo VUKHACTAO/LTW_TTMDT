@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 
 <head>
@@ -9,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel='shortcut icon' href='img/admin.png' />
-    <title>Thêm Voucher</title>
+    <title>Thêm sản phẩm</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -33,7 +34,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-
+        <jsp:include page="CotAdmin.jsp"></jsp:include>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -50,47 +51,28 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">THÊM VOUCHER</h1>
-
+                    <h1 class="h3 mb-2 text-gray-800">Voucher</h1>
+                    <%String status = (String) request.getSession().getAttribute("status1");%>
+                    <%if(status=="Done"){%>
+                    <h3 style="color: #0f6848">Them voucher thanh cong!</h3>
+                    <%}if(status=="Err"){%>
+                    <h3 style="color: red">Voucher da ton tai!</h3>
+<%}%>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
 
-                        <form>
+                        <form action="/addVoucher" method="post">
                             <div class="mb-3" >
-                                <label for="masanpham" class="form-label">Mã Voucher</label>
-                                <input type="text" class="form-control" id="masanpham" >
+                                <label for="masanpham" class="form-label">Mã sản phẩm</label>
+                                <input type="text" name="mavoucher" class="form-control" id="masanpham" >
 
                             </div>
-                            <div class="mb-3" >
-                                <label for="masanpham" class="form-label">Số lượng</label>
-                                <input type="number" class="form-control"  >
-
+                            <div class="mb-3">
+                                <label for="masanpham" class="form-label">Gia tri</label>
+                                <input type="number" name="giatri"class="form-control"  >
                             </div>
-                            <div class="mb-3" >
-                                <label for="masanpham" class="form-label">Discount</label>
-                                <input type="number" class="form-control"  >
-
-                            </div>
-                            <div class="mb-3" >
-                                <label for="masanpham" class="form-label">Ngày bắt đầu</label>
-                                <input type="date" class="form-control"  >
-
-                            </div>
-                            <div class="mb-3" >
-                                <label for="masanpham" class="form-label">Ngày kết thúc</label>
-                                <input type="date" class="form-control"  >
-
-                            </div>
-
-
-
-
-
-
-
-
-                            <button type="submit" class="btn btn-primary" style=" width: 500px; margin-top: 200px; margin-bottom: 40px; margin-left:100px" >THÊM VOUCHER</button>
+                            <button type="submit" class="btn btn-primary" style="float: right; width: 200px; margin-right: 500px; margin-bottom: 100px; padding: 20px 20px" >THEM VOUCHER</button>
                         </form>
                     </div>
 

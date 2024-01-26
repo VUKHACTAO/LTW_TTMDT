@@ -32,4 +32,7 @@ public class Role {
                 ", nameRole='" + nameRole + '\'' +
                 '}';
     }
+
+    public Role() {
+    }
 }

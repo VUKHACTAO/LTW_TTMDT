@@ -1,3 +1,6 @@
+<%@ page import="com.example.demo5.Service.UserService" %>
+<%@ page import="com.example.demo5.Model.User" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
@@ -54,7 +57,8 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ NGƯỜI DÙNG</h1>
-
+<%List<User> list= UserService.getAllUser();%>
+                    <a href="Themnguoidung.jsp" >Them nguoi dung</a>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -66,105 +70,41 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Tên tài khoản</th>
-                                        <th>Giới tính</th>
-                                        <th>Ngày sinh</th>
-                                        <th>Địa chỉ</th>
-                                        <th>Số điện thoại</th>
+                                        <th>Mat khau</th>
+                                        <th>Ho va ten</th>
+                                        <th>Email</th>
+                                        <th>Dia chi</th>
                                         <th>Trạng thái</th>
-                                        <th>Số đơn đã mua</th>
+                                        <th>Diem</th>
                                         <th>Tính năng</th>
-
-
                                     </tr>
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>cauchunho</td>
-                                        <td>Nam</td>
 
-                                        <td>19/8/2002</td>
-                                        <td>Thái Bình</td>
-                                        <td> 0123456789</td>
-                                        <td> Hoạt động</td>
-                                        <td> 78</td>
-                                        <td><i class="fa-solid fa-lock"></i>
-                                            <i class="fa-solid fa-delete-left"></i>
+                                    <%for(User user:list){%>
+                                    <%if(user.getStatus()!=3){%>
+                                    <tr>
+                                        <%HttpSession session1 =request.getSession();%>
+                                        <%session1.setAttribute("idUser", user.getId());%>
+                                        <td><%=user.getId()%></td>
+                                        <td><%=user.getUserName()%></td>
+                                        <td><%=user.getPassword()%></td>
+                                        <td><%=user.getFullname()%></td>
+                                        <td><%=user.getEmail()%></td>
+                                        <td><%=user.getAddress()%></td>
+                                        <%if(user.getStatus()==1){%>
+                                          <td style="color: #0f6848">Active</td>
+                                     <%   }if(user.getStatus()==0) {%>
+                                        <td style="color: red">Block</td>
+                                       <% }%>
+                                        <td><%=user.getReward()%></td>
+                                        <td>
+                                            <a href="/deleteuser"><i class="fa-solid fa-delete-left"></i></a>
+                                            <a href="chinhsuanguoidung?idUser=<%=user.getId()%>" ><i class="fa-solid fa-pen"></i></a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>cauchunho</td>
-                                        <td>Nam</td>
-
-                                        <td>19/8/2002</td>
-                                        <td>Thái Bình</td>
-                                        <td> 0123456789</td>
-                                        <td> Hoạt động</td>
-                                        <td> 78</td>
-                                        <td><i class="fa-solid fa-lock"></i>
-                                            <i class="fa-solid fa-delete-left"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>cauchunho</td>
-                                        <td>Nam</td>
-
-                                        <td>19/8/2002</td>
-                                        <td>Thái Bình</td>
-                                        <td> 0123456789</td>
-                                        <td> Hoạt động</td>
-                                        <td> 78</td>
-                                        <td><i class="fa-solid fa-lock"></i>
-                                            <i class="fa-solid fa-delete-left"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>cauchunho</td>
-                                        <td>Nam</td>
-
-                                        <td>19/8/2002</td>
-                                        <td>Thái Bình</td>
-                                        <td> 0123456789</td>
-                                        <td> Hoạt động</td>
-                                        <td> 78</td>
-                                        <td><i class="fa-solid fa-lock"></i>
-                                            <i class="fa-solid fa-delete-left"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>cauchunho</td>
-                                        <td>Nam</td>
-
-                                        <td>19/8/2002</td>
-                                        <td>Thái Bình</td>
-                                        <td> 0123456789</td>
-                                        <td> Hoạt động</td>
-                                        <td> 78</td>
-                                        <td><i class="fa-solid fa-lock"></i>
-                                            <i class="fa-solid fa-delete-left"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>cauchunho</td>
-                                        <td>Nam</td>
-
-                                        <td>19/8/2002</td>
-                                        <td>Thái Bình</td>
-                                        <td> 0123456789</td>
-                                        <td> Hoạt động</td>
-                                        <td> 78</td>
-                                        <td><i class="fa-solid fa-lock"></i>
-                                            <i class="fa-solid fa-delete-left"></i>
-                                        </td>
-                                    </tr>
-
-
+                                    <%}}%>
                                     </tbody>
                                 </table>
                             </div>

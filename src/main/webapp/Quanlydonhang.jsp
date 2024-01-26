@@ -1,3 +1,9 @@
+<%@ page import="com.example.demo5.Model.Bill_Detail" %>
+
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.demo5.Service.UserService" %>
+<%@ page import="com.example.demo5.Service.BillService" %>
+<%@ page import="com.example.demo5.Model.Bill" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
@@ -28,6 +34,7 @@
 </head>
 
 <body id="page-top">
+<% List<Bill> list = BillService.loadAllBill();%>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -35,6 +42,7 @@
         <!-- Sidebar -->
         <jsp:include page="CotAdmin.jsp"></jsp:include>
         <!-- End of Sidebar -->
+
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -50,8 +58,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ VOUCHER</h1>
-
+                    <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ ĐƠN HÀNG</h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -62,87 +69,39 @@
                                     <thead>
                                     <tr>
                                         <th>ID ĐƠN HÀNG</th>
-                                        <th>MÃ ĐƠN HÀNG</th>
                                         <th>TÊN KHÁCH HÀNG</th>
                                         <th>ĐỊA CHỈ</th>
-                                        <th>SỐ ĐIỆN THOẠI</th>
-                                        <th>SỐ TIỀN</th>
+                                        <th>NGAY LAP HOA DON</th>
+                                        <th>MA VOUCHER SU DUNG</th>
+                                        <th>NGAY GIAO HANG</th>
+                                        <th>NGAY NHAN HANG</th>
                                         <th>TRẠNG THÁI ĐƠN HÀNG</th>
                                         <th>CHI TIẾT ĐƠN HÀNG</th>
+                                        <th>THAO TAC</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
+                                    <% for(Bill bill:list )
+                                    { if(bill.getExist()==1){
+
+                                    %>
                                     <tr>
-                                        <td>#1</td>
-                                        <td>MD2001</td>
-                                        <td>VŨ KHẮC TẠO</td>
-                                        <td>Hồ Chí Minh</td>
-                                        <td>0123456789</td>
-                                        <td>6.120.000đ Đ</td>
-                                        <td style="color: #0f6848">Đang vận chuyển</td>
-                                        <td><a style="text-decoration: none" href="Chitietdonhang.jsp">Xem thêm</a></td>
+                                        <%HttpSession session1 = request.getSession();
+                                        session1.setAttribute("idBill", bill.getId());%>
+                                        <td><%= bill.getId()%></td>
+                                        <td><%=UserService.getFullnamebyUserid(bill.getIdUser())%></td>
+                                        <td><%=bill.getAddress()%></td>
+                                        <td><%=bill.getInvoiceDate()%></td>
+                                        <td><%= bill.getIdVoucher()%></td>
+                                        <td><%=bill.getDateOrder()%></td>
+                                        <td><%=bill.getDateDeli()%></td>
+                                        <td style="color: #0f6848"><%=bill.getStatus()%></td>
+                                        <td><a style="text-decoration: none" href="chitiethoadon?idBill=<%=bill.getId()%>">Xem thêm</a></td>
+                                        <td><a href="/deletebill"><i class="fa-solid fa-delete-left"></i></a></td>
                                     </tr>
-                                    <tr>
-                                        <td>#2</td>
-                                        <td>MD2002</td>
-                                        <td>TRẦN TRUNG HIẾU</td>
-                                        <td>Hồ Chí Minh</td>
-                                        <td>0123456789</td>
-                                        <td>6.120.000đ Đ</td>
-                                        <td style="color: #0f6848">Đang vận chuyển</td>
-                                        <td><a style="text-decoration: none" href="Chitietdonhang.jsp">Xem thêm</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>MD2001</td>
-                                        <td>VŨ KHẮC TẠO</td>
-                                        <td>Hồ Chí Minh</td>
-                                        <td>0123456789</td>
-                                        <td>6.120.000đ Đ</td>
-                                        <td style="color: #0f6848">Đang vận chuyển</td>
-                                        <td><a style="text-decoration: none" href="Chitietdonhang.jsp">Xem thêm</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>MD2001</td>
-                                        <td>VŨ KHẮC TẠO</td>
-                                        <td>Hồ Chí Minh</td>
-                                        <td>0123456789</td>
-                                        <td>6.120.000đ Đ</td>
-                                        <td style="color: #0f6848">Đang vận chuyển</td>
-                                        <td><a style="text-decoration: none" href="Chitietdonhang.jsp">Xem thêm</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>MD2001</td>
-                                        <td>VŨ KHẮC TẠO</td>
-                                        <td>Hồ Chí Minh</td>
-                                        <td>0123456789</td>
-                                        <td>6.120.000đ Đ</td>
-                                        <td style="color: #0f6848">Đang vận chuyển</td>
-                                        <td><a style="text-decoration: none" href="Chitietdonhang.jsp">Xem thêm</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>MD2001</td>
-                                        <td>VŨ KHẮC TẠO</td>
-                                        <td>Hồ Chí Minh</td>
-                                        <td>0123456789</td>
-                                        <td>6.120.000đ Đ</td>
-                                        <td style="color: #0f6848">Đang vận chuyển</td>
-                                        <td><a style="text-decoration: none" href="Chitietdonhang.jsp">Xem thêm</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>MD2001</td>
-                                        <td>VŨ KHẮC TẠO</td>
-                                        <td>Hồ Chí Minh</td>
-                                        <td>0123456789</td>
-                                        <td>6.120.000đ Đ</td>
-                                        <td style="color: #0f6848">Đang vận chuyển</td>
-                                        <td><a style="text-decoration: none" href="Chitietdonhang.jsp">Xem thêm</a></td>
-                                    </tr>
+                                    <%}}%>
+
 
 
 

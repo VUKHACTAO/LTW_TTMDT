@@ -1,3 +1,6 @@
+<%@ page import="com.example.demo5.Model.Voucher" %>
+<%@ page import="com.example.demo5.Service.VoucherService" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -50,8 +53,13 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ VOUCHER</h1>
+                    <div class="btn-group" style="margin:  20px">
+                        <a href="Themvoucher.jsp" class="btn btn-primary btn-lg " role="button" >THEM VOUCHER</a>
 
+                    </div>
 
+<%List<Voucher> list= VoucherService.getAll();
+int id=0;%>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
 
@@ -60,10 +68,10 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                     <tr>
-                                        <th>ID VOUCHER</th>
-                                        <th>MÃ VOUCHER</th>
-                                        <th>DISCOUNT</th>
-                                        <th>SỐ LƯỢT DÙNG</th>
+                                        <th>STT</th>
+                                        <th>MA VOUCHER</th>
+                                        <th>GIA TRI</th>
+                                        <th>TRANG THAI</th>
                                         <th>TÍNH  NĂNG</th>
 
 
@@ -73,56 +81,29 @@
 
                                     <tbody>
                                     <tr>
-                                        <td>#1</td>
-                                        <td>HIPHOPNEVERDIE</td>
-                                        <td>0.05</td>
-
-                                        <td>100</td>
-                                        <td><i class="fa-solid fa-lock"></i>
-                                            <i class="fa-solid fa-delete-left"></i>
+                                        <%for(Voucher voucher:list){%>
+                                        <%HttpSession session1=request.getSession();
+                                        session1.setAttribute("idvoucher", voucher.getId());%>
+                                        <td><%=id+1%></td>
+                                        <td><%=voucher.getId()%></td>
+                                        <td><%=voucher.getDiscount()%>%</td>
+                                        <td>
+                                            <%if(voucher.getStatus()==0){%>
+                                            <p style="color: red">Block</p>
+                                            <%}if(voucher.getStatus()==1){%>
+                                            <p style="color: darkgreen">Active</p>
+                                            <%}%>
+                                        </td>
+                                        <td>
+                                            <%if(voucher.getStatus()==0){%>
+                                            <a href="unlockvoucher?idvoucher=<%=voucher.getId()%>" ><i class="fa-solid fa-lock"></i></a>
+                                            <%}if(voucher.getStatus()==1){%>
+                                            <a href="blockvoucher?id_voucher=<%=voucher.getId()%>"> <i class="fa-solid fa-unlock"></i></a>
+                                            <%}%>
+                                            <a href="deletevoucher?id_voucher=<%=voucher.getId()%>"><i class="fa-solid fa-delete-left"></i></a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>#2</td>
-                                        <td>PHUNULUONDUNG</td>
-                                        <td>0.1</td>
-
-                                        <td>50</td>
-                                        <td><i class="fa-solid fa-lock"></i>
-                                            <i class="fa-solid fa-delete-left"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#3</td>
-                                        <td>KHAITRUONGMAYMAN</td>
-                                        <td>0.06</td>
-
-                                        <td>100</td>
-                                        <td><i class="fa-solid fa-lock"></i>
-                                            <i class="fa-solid fa-delete-left"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#4</td>
-                                        <td>PHATTAIPHATLOC</td>
-                                        <td>0.1</td>
-
-                                        <td>30</td>
-                                        <td><i class="fa-solid fa-lock"></i>
-                                            <i class="fa-solid fa-delete-left"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#5</td>
-                                        <td>CHUCMUNGNAMMOI</td>
-                                        <td>0.2</td>
-
-                                        <td>10</td>
-                                        <td><i class="fa-solid fa-lock"></i>
-                                            <i class="fa-solid fa-delete-left"></i>
-                                        </td>
-                                    </tr>
-
+                                    <%}%>
 
 
                                     </tbody>

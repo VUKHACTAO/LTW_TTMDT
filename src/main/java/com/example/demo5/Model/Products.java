@@ -2,58 +2,39 @@
 package com.example.demo5.Model;
 
 public class Products {
-    private String id, idSupplier, idCategories, nameOfProduct;
+    private String nameOfProduct;
 
-    private int idImage;
+    private int idImage, id, idSupplier, idCategories;
 
-    private double price;
+    private double price, inputprice;
     private String unit;
 
-    public Products(String id, int idImage, String idSupplier, String idCategories, String nameOfProduct, double price, String unit) {
-        this.id = id;
+    public Products(String nameOfProduct, int idImage, int id, int idSupplier, int idCategories, double price, double inputprice, String unit) {
+        this.nameOfProduct = nameOfProduct;
         this.idImage = idImage;
+        this.id = id;
         this.idSupplier = idSupplier;
         this.idCategories = idCategories;
-        this.nameOfProduct = nameOfProduct;
         this.price = price;
+        this.inputprice = inputprice;
         this.unit = unit;
+    }
+
+    @Override
+    public String toString() {
+        return "Products{" +
+                "nameOfProduct='" + nameOfProduct + '\'' +
+                ", idImage=" + idImage +
+                ", id=" + id +
+                ", idSupplier=" + idSupplier +
+                ", idCategories=" + idCategories +
+                ", price=" + price +
+                ", inputprice=" + inputprice +
+                ", unit='" + unit + '\'' +
+                '}';
     }
 
     public Products() {
-    }
-
-    public Products(String id, String idSupplier, String idCategories, String nameOfProduct, int idImage, double price, String unit) {
-        this.id = id;
-        this.idSupplier = idSupplier;
-        this.idCategories = idCategories;
-        this.nameOfProduct = nameOfProduct;
-        this.idImage = idImage;
-        this.price = price;
-        this.unit = unit;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getIdSupplier() {
-        return idSupplier;
-    }
-
-    public void setIdSupplier(String idSupplier) {
-        this.idSupplier = idSupplier;
-    }
-
-    public String getIdCategories() {
-        return idCategories;
-    }
-
-    public void setIdCategories(String idCategories) {
-        this.idCategories = idCategories;
     }
 
     public String getNameOfProduct() {
@@ -72,12 +53,44 @@ public class Products {
         this.idImage = idImage;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getIdSupplier() {
+        return idSupplier;
+    }
+
+    public void setIdSupplier(int idSupplier) {
+        this.idSupplier = idSupplier;
+    }
+
+    public int getIdCategories() {
+        return idCategories;
+    }
+
+    public void setIdCategories(int idCategories) {
+        this.idCategories = idCategories;
+    }
+
     public double getPrice() {
         return price;
     }
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public double getInputprice() {
+        return inputprice;
+    }
+
+    public void setInputprice(double inputprice) {
+        this.inputprice = inputprice;
     }
 
     public String getUnit() {
@@ -87,17 +100,6 @@ public class Products {
     public void setUnit(String unit) {
         this.unit = unit;
     }
-
-    @Override
-    public String toString() {
-        return "Products{" +
-                "id='" + id + '\'' +
-                ", idSupplier='" + idSupplier + '\'' +
-                ", idCategories='" + idCategories + '\'' +
-                ", nameOfProduct='" + nameOfProduct + '\'' +
-                ", idImage=" + idImage +
-                ", price=" + price +
-                ", unit='" + unit + '\'' +
-                '}';
-    }
 }
+
+

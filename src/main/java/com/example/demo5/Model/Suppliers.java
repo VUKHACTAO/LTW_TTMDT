@@ -1,21 +1,27 @@
 package com.example.demo5.Model;
 
 public class Suppliers {
-    private String id, supplierName, address, phoneNumber;
+    private String supplierName, address, phoneNumber;
+    private int id;
 
-    public Suppliers(String id, String supplierName, String address, String phoneNumber) {
-        this.id = id;
+    public Suppliers(String supplierName, String address, String phoneNumber, int id) {
         this.supplierName = supplierName;
         this.address = address;
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Suppliers{" +
+                "supplierName='" + supplierName + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
+    public Suppliers() {
     }
 
     public String getSupplierName() {
@@ -42,13 +48,11 @@ public class Suppliers {
         this.phoneNumber = phoneNumber;
     }
 
-    @Override
-    public String toString() {
-        return "Suppliers{" +
-                "id='" + id + '\'' +
-                ", supplierName='" + supplierName + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

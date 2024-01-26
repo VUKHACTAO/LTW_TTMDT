@@ -1,32 +1,33 @@
 package com.example.demo5.Model;
 
 public class Product_Detail {
-    private String idProduct, specificication, origin;
+    private String specificication, origin;
     private int status;
-    private String nameOfProduct, description, review;
-    private double originSellingPrice, actualSellingPrice, discount;
-    private int inventoryQuantity;
+    private String  description;
+    private int idProduct, inventoryQuantity;
 
-    public Product_Detail(String idProduct, String specificication, String origin, int status, String nameOfProduct, String description, String review, double originSellingPrice, double actualSellingPrice, double discount, int inventoryQuantity) {
-        this.idProduct = idProduct;
+    public Product_Detail(String specificication, String origin, int status, String description, int idProduct, int inventoryQuantity) {
         this.specificication = specificication;
         this.origin = origin;
         this.status = status;
-        this.nameOfProduct = nameOfProduct;
         this.description = description;
-        this.review = review;
-        this.originSellingPrice = originSellingPrice;
-        this.actualSellingPrice = actualSellingPrice;
-        this.discount = discount;
+        this.idProduct = idProduct;
         this.inventoryQuantity = inventoryQuantity;
     }
 
-    public String getIdProduct() {
-        return idProduct;
+    @Override
+    public String toString() {
+        return "Product_Detail{" +
+                "specificication='" + specificication + '\'' +
+                ", origin='" + origin + '\'' +
+                ", status=" + status +
+                ", description='" + description + '\'' +
+                ", idProduct=" + idProduct +
+                ", inventoryQuantity=" + inventoryQuantity +
+                '}';
     }
 
-    public void setIdProduct(String idProduct) {
-        this.idProduct = idProduct;
+    public Product_Detail() {
     }
 
     public String getSpecificication() {
@@ -53,14 +54,6 @@ public class Product_Detail {
         this.status = status;
     }
 
-    public String getNameOfProduct() {
-        return nameOfProduct;
-    }
-
-    public void setNameOfProduct(String nameOfProduct) {
-        this.nameOfProduct = nameOfProduct;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -69,36 +62,12 @@ public class Product_Detail {
         this.description = description;
     }
 
-    public String getReview() {
-        return review;
+    public int getIdProduct() {
+        return idProduct;
     }
 
-    public void setReview(String review) {
-        this.review = review;
-    }
-
-    public double getOriginSellingPrice() {
-        return originSellingPrice;
-    }
-
-    public void setOriginSellingPrice(double originSellingPrice) {
-        this.originSellingPrice = originSellingPrice;
-    }
-
-    public double getActualSellingPrice() {
-        return actualSellingPrice;
-    }
-
-    public void setActualSellingPrice(double actualSellingPrice) {
-        this.actualSellingPrice = actualSellingPrice;
-    }
-
-    public double getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(double discount) {
-        this.discount = discount;
+    public void setIdProduct(int idProduct) {
+        this.idProduct = idProduct;
     }
 
     public int getInventoryQuantity() {
@@ -107,22 +76,5 @@ public class Product_Detail {
 
     public void setInventoryQuantity(int inventoryQuantity) {
         this.inventoryQuantity = inventoryQuantity;
-    }
-
-    @Override
-    public String toString() {
-        return "Detail_Product{" +
-                "idProduct='" + idProduct + '\'' +
-                ", specificication='" + specificication + '\'' +
-                ", origin='" + origin + '\'' +
-                ", status=" + status +
-                ", nameOfProduct='" + nameOfProduct + '\'' +
-                ", description='" + description + '\'' +
-                ", review='" + review + '\'' +
-                ", originSellingPrice=" + originSellingPrice +
-                ", actualSellingPrice=" + actualSellingPrice +
-                ", discount=" + discount +
-                ", inventoryQuantity=" + inventoryQuantity +
-                '}';
     }
 }

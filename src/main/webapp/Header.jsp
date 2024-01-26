@@ -1,11 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.example.demo5.Model.User" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
 
 <%@ page contentType="text/html;charset=UTF-8"%>
 
 
 
 <header>
+    <% User user = (User) request.getSession().getAttribute("user");%>
+    <% Map<Integer,Integer> listCart= (Map<Integer, Integer>) request.getSession().getAttribute("listCart");%>
+
+
     <div class="container-fluid">
         <div class="row bg-secondary py-2 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
@@ -66,9 +72,13 @@
                     <i class="fas fa-heart text-primary"></i>
                     <span class="badge">0</span>
                 </a>
-                <a href="" class="btn border">
+                <a href="/cart" class="btn border">
                     <i class="fas fa-shopping-cart text-primary"></i>
+                    <%if(listCart==null){%>
                     <span class="badge">0</span>
+                    <%}else{%>
+                    <span class="badge"><%=listCart.size()%></span>
+                    <%}%>
                 </a>
             </div>
         </div>
@@ -88,13 +98,11 @@
 
                 <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
                     <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-
-                    <% List<Categories> cate = CategoryService.getALL();
-                        for (Categories ct: cate) {
-                            %>
+                        <%List<Categories> categoriesList = CategoryService.getALL();%>
+                       <%for(Categories categories:categoriesList){%>
                         <div class ="icon_menu" style="display: flex">
-                            <img class="logo"  alt="logo" src="<%=ct.getImage()%>" width="25px" height="25px" style="margin-top: 5px; margin-left: 6px">
-                            <a href="category?cid=<%=ct.getId()%>" class="nav-item nav-link"><%=ct.getName()%></a>
+                            <img class="logo"  alt="logo" src="./img/tom.png" width="25px" height="25px" style="margin-top: 5px; margin-left: 6px">
+                            <a href="Tom.html" class="nav-item nav-link"><%=categories.getName()%></a>
                         </div>
                         <%}%>
                     </div>
@@ -116,24 +124,43 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trang</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Giỏ hàng</a>
+                                    <a href="cart.jsp" class="dropdown-item">Giỏ hàng</a>
                                     <a href="checkout.html" class="dropdown-item">Thanh toán</a>
                                 </div>
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
                         </div>
-                        <% User a = (User) session.getAttribute("user");%>
-                        <%if(a==null){%>
+
+                        <%if(user==null){%>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="login.jsp" class="nav-item nav-link">Đăng nhập</a>
                             <a href="register.jsp" class="nav-item nav-link">Đăng kí</a>
                         </div>
                        <% }else{%>
-                        <div class="navbar-nav ml-auto py-0">
-                        <img class="header-login-user-img" src="<%=a.getLinkImage()%>" alt="">
-                        <a href="register.jsp" class="nav-item nav-link"> <%a.getFullname();%></a>
-                        </div>
-                       <%}%>
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=user.getFullname()%></span>
+                                <img class="img-profile rounded-circle"
+                                     src="<%=user.getLinkImage()%>" width="40px" height="40px">
+                            </a>
+                            <%if(user.getIdRole()==0){%>
+                            <a href="/admin">Admin</a>
+                            <%}%>
+
+
+
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                 aria-labelledby="userDropdown">
+                                <div class="dropdown-divider"></div>
+                                <a href="/LogOut" >
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                        <%}%>
 
                     </div>
 

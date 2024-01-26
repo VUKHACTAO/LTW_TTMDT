@@ -2,6 +2,7 @@ package com.example.demo5.Controller;
 
 import com.example.demo5.Model.User;
 import com.example.demo5.Service.UserService;
+import com.example.demo5.Ulit.Encode;
 import com.example.demo5.Ulit.SendEmail;
 
 import javax.servlet.RequestDispatcher;
@@ -38,7 +39,7 @@ public class Register extends HttpServlet {
         SendEmail sendEmail = new SendEmail();
         String code = sendEmail.OTPCode();
 
-        User user = new User(username, password, fullname, email, phonenumber, address, code);
+        User user = new User(username, Encode.checkksum(password), fullname, email, phonenumber, address, code);
 
         if (username.isEmpty() || password.isEmpty() || fullname.isEmpty() || email.isEmpty() || phonenumber.isEmpty() || address.isEmpty() || repassword. isEmpty()) {
             resp.sendRedirect("register.jsp?error=Please fill in all fields");

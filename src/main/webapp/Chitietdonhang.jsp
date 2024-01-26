@@ -1,3 +1,9 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.demo5.Model.Bill_Detail" %>
+<%@ page import="com.example.demo5.Model.Bill" %>
+<%@ page import="com.example.demo5.Model.Products" %>
+<%@ page import="com.example.demo5.Service.*" %>
+<%@ page import="com.example.demo5.Ulit.Format" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
@@ -26,106 +32,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 </head>
-
 <body id="page-top">
+<% String idbilll = request.getParameter("idBill");%>
+<% Integer idbill = Integer.parseInt(idbilll);%>
+<% List<Bill_Detail> list= BilldetailService.getBillDetailbyid(idbill); %>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Admin.jsp">
-                <div class="sidebar-brand-icon rotate-n-15" style="width: 25px;height: 25px">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-
-                </div>
-                <div class="sidebar-brand-text mx-3">QUẢN TRỊ </div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="Admin.jsp">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Trang chủ</span></a>
-            </li>
-
-            <!-- Divider -->
-
-
-            <!-- Heading -->
-
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="Quanlysanpham.jsp" >
-                    <i class="fa-solid fa-truck"></i>
-                    <span>Quản lí đơn hàng</span>
-                </a>
-
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="Quanlynguoidung.jsp" >
-                    <i class="fa-solid fa-user-tie"></i>
-
-                    <span>Quản lí người dùng</span>
-                </a>
-
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                   aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Quản lý sản phẩm</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Themsanpham.jsp">Thêm sản phẩm</a>
-                        <a class="collapse-item" href="Quanlysanpham.jsp">Danh sách sản phẩm</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                   aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Quản lý voucher</span>
-                </a>
-                <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-
-
-                        <a class="collapse-item" href="Themvoucher.jsp">Thêm Voucher</a>
-                        <a class="collapse-item" href="Quanlyvoucher.jsp">Danh sách Voucher</a>
-                    </div>
-                </div>
-            </li>
-
-
-
-
-
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-
-
-            <!-- Divider -->
-
-
-            <!-- Heading -->
-
-
-
-
-            <!-- Nav Item - Charts -->
-
-
-        </ul>
+        <jsp:include page="CotAdmin.jsp"></jsp:include>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -147,9 +63,10 @@
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-
+<%Bill bill=BillService.getBillbyIdBill(idbill);%>
+                        <%List<Bill_Detail> list1 = BilldetailService.getBillDetailbyid(idbill);%>
                         <div class="card-body">
-                            <H1 style="color: black">CHI TIẾT ĐƠN ĐẶT HÀNG: VT001</H1>
+                            <H1 style="color: black">CHI TIẾT ĐƠN ĐẶT HÀNG: <%=idbill%></H1>
                             <br>
 
 
@@ -165,24 +82,20 @@
                                     <td>
                                         <H5>Tên khách hàng: </H5>
                                     </td>
-                                    <td><p>Vũ Khắc Tạo</p></td>
+                                    <td><p><%=UserService.getFullnamebyUserid(bill.getIdUser())%></p></td>
 
                                 </tr>
                                 <tr>
                                     <td><H5>Địa chỉ: </H5></td>
-                                    <td><p>470/17/16 Tô Ngọc Vân, Tam Phú, Thủ Đức</p></td>
+                                    <td><p><%=bill.getAddress()%></p></td>
                                 </tr>
                                 <tr>
                                     <td><H5>Tình trạng đơn hàng: </H5></td>
-                                    <td><a style="color: #0f6848">Đã giao</a></td>
-                                </tr>
-                                <tr>
-                                    <td><H5>Số điện thoại: </H5></td>
-                                    <td><p>0123456789</p></td>
+                                    <td><a style="color: #0f6848"><%=bill.getStatus()%>></a></td>
                                 </tr>
                                 <tr>
                                     <td><H5>Voucher: </H5></td>
-                                    <td><p>HIPHOPNEVERDIE</p></td>
+                                    <td><p><%=bill.getIdVoucher()%></p></td>
                                 </tr>
 
 
@@ -206,58 +119,28 @@
                                     </thead>
 
                                     <tbody>
+                                    <%int totalmoney=0;%>
+                                    <%for(Bill_Detail billDetail:list1){%>
+
+                                    <%Products products = ProductService.getProductByID(billDetail.getIdProduct());%>
+
                                     <tr>
                                         <td>
-                                            <img width="100px" height="100px" src="img/Muc-ong.jpg">
-                                            <p4>Mực ống</p4>
+                                            <img width="100px" height="100px" src="<%=ImgService.getLinkImgbyID(products.getIdImage())%>">
+                                            <p4><%=products.getNameOfProduct()%></p4>
                                             <br>
-                                            <p4>Mã: 1001</p4>
+                                            <p4><%=products.getId()%></p4>
 
                                         </td>
+
+                                        <td><%=billDetail.getAmount()%></td>
                                         <td>3 con/kg</td>
-                                        <td>5</td>
-                                        <td> 200.000đ</td>
-                                        <td> 1.000.000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img width="100px" height="100px" src="img/tomhum.webp">
-                                            <p4>Tôm hùm</p4>
-                                            <br>
-                                            <p4>Mã: 1002</p4>
+                                        <td><%=Format.fomatCurrency(products.getPrice())%></td>
+                                        <td><%=Format.fomatCurrency(products.getPrice()*billDetail.getAmount())%></td>
+                                        <%totalmoney+=products.getPrice()*billDetail.getAmount();%>
 
-                                        </td>
-                                        <td>1 con/kg</td>
-                                        <td>3</td>
-                                        <td> 500.000đ</td>
-                                        <td> 1.500.000đ</td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <img width="100px" height="100px" src="img/tomtit.webp">
-                                            <p4>Tôm tít</p4>
-                                            <br>
-                                            <p4>Mã: 1003</p4>
-
-                                        </td>
-                                        <td>9 con/kg</td>
-                                        <td>3</td>
-                                        <td> 200.000đ</td>
-                                        <td>600.000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img width="100px" height="100px" src="img/haisan.png">
-                                            <p4>Mẹt hải sản thập cẩm</p4>
-                                            <br>
-                                            <p4>Mã: 1005</p4>
-
-                                        </td>
-                                        <td>Mẹt</td>
-                                        <td>1</td>
-                                        <td> 2.000.000đ</td>
-                                        <td> 2.000.000đ</td>
-                                    </tr>
+                                    <%}%>
                                     <tr>
                                         <td>
                                             <p2>Tổng tiền</p2>
@@ -265,7 +148,7 @@
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td> 5.100.000đ</td>
+                                        <td><%= totalmoney %></td>
                                     </tr>
 
 
@@ -286,22 +169,22 @@
                                     <td>
                                         <H5>Tổng tiền: </H5>
                                     </td>
-                                    <td><p>6.100.000đ</p></td>
+                                    <td><p><%=Format.fomatCurrency(totalmoney)%></p></td>
 
                                 </tr>
                                 <tr>
                                     <td><H5>Vận chuyển: </H5></td>
-                                    <td><p>30.000đ</p></td>
+                                    <td><p><%=Format.fomatCurrency(30000)%></p></td>
                                 </tr>
                                 <tr>
                                     <td><H5>Giảm giá: </H5></td>
                                     <td>
 
-                                        <a > - 50.000 đ</a></td>
+                                        <a > <%=Format.fomatCurrency(15000)%></a></td>
                                 </tr>
                                 <tr>
                                     <td><H5>Tổng giá trị đơn </H5></td>
-                                    <td><p>6.120.000đ</p></td>
+                                    <td><p><%=Format.fomatCurrency(totalmoney+30000-15000)%></p></td>
                                 </tr>
 
 

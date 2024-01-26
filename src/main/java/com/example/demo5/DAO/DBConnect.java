@@ -3,7 +3,7 @@ package com.example.demo5.DAO;
 import java.sql.*;
 
 public class DBConnect {
-    String url =  "jdbc:mysql://localhost:3306/daohaisana";
+    String url =  "jdbc:mysql://localhost:3306/daohaisanb";
     String user = "root";
     String password = "";
 

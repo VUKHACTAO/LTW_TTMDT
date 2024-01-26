@@ -1,3 +1,8 @@
+<%@ page import="com.example.demo5.Service.SupplierService" %>
+<%@ page import="com.example.demo5.Model.Suppliers" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.demo5.Model.Categories" %>
+<%@ page import="com.example.demo5.Service.CategoryService" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
@@ -54,94 +59,60 @@
                     <h1 class="h3 mb-2 text-gray-800">THÊM SẢN PHẨM</h1>
 
 
+
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
 
-                        <form>
-                            <div class="mb-3" >
-                                <label for="masanpham" class="form-label">Mã sản phẩm</label>
-                                <input type="text" class="form-control" id="masanpham" >
+                        <form action="/addproduct" method="post">
 
-                            </div>
                             <div class="mb-3">
                                 <label for="tensanpham" class="form-label">Tên sản phẩm</label>
-                                <input type="text" class="form-control" id="tensanpham" >
-
-                            </div>
-                            <div class="mb-3">
-                                <label for="masanpham" class="form-label">Số lượng</label>
-                                <input type="number" class="form-control"  >
-
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Tình trạng</label><br>
-                                <select class="form-select" style="width: 200px; height: 40px; border-radius: 10px; border: 1px solid lightgrey" aria-label="Default select example">
-                                    <option style="text-align: center"selected>-- Tình Trạng --</option>
-                                    <option value="1">Còn</option>
-                                    <option value="2">Hết</option>
-                                    <option value="3">Chưa có</option>
-                                </select>
+                                <input type="text" name="tensanpham"class="form-control" id="tensanpham" >
 
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Danh Mục</label><br>
-                                <select class="form-select" style="width: 200px; height: 40px; border-radius: 10px; border: 1px solid lightgrey" aria-label="Default select example">
+                                <select name="category" class="form-select" style="width: 200px; height: 40px; border-radius: 10px; border: 1px solid lightgrey" aria-label="Default select example">
                                     <option style="text-align: center" selected>-- danh mục --</option>
-                                    <option value="1">Tôm</option>
-                                    <option value="2">Cá</option>
-                                    <option value="3">Mực</option>
+                                    <%List<Categories> categoriesList = CategoryService.getALL();%>
+                                    <%for(Categories categories:categoriesList){%>
+                                    <option value="<%=categories.getId()%>"><%=categories.getName()%>></option>
+                                    <%}%>
                                 </select>
 
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Nhà Cung Cấp</label><br>
-                                <select class="form-select" style="width: 200px; height: 40px; border-radius: 10px; border: 1px solid lightgrey" aria-label="Default select example">
+                                <select name="supplier" class="form-select" style="width: 200px; height: 40px; border-radius: 10px; border: 1px solid lightgrey" aria-label="Default select example">
                                     <option style="text-align: center" selected>-- Nhà cung cấp --</option>
-                                    <option value="1">Sài gòn</option>
-                                    <option value="2">Thái Bình</option>
-                                    <option value="3">Hà Nội</option>
+                                    <%List< Suppliers> list= SupplierService.getAllSup();%>
+                                    <%for(Suppliers suppliers:list){%>
+                                    <option value="<%=suppliers.getId()%>"><%=suppliers.getSupplierName()%></option>
+                                   <%}%>
                                 </select>
 
                             </div>
 
 
+
                             <div class="mb-3">
-                                <label for="masanpham" class="form-label">Giá bán</label>
-                                <input type="number" class="form-control"  >
+                                <label class="form-label">Giá bán</label>
+                                <input name="price"type="number" class="form-control"  >
 
                             </div>
                             <div class="mb-3">
-                                <label for="masanpham" class="form-label">Giá vốn</label>
-                                <input type="number" class="form-control">
-
-
+                                <label class="form-label">Giá vốn</label>
+                                <input name="inputprice"type="number" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label for="masanpham" class="form-label">Thêm Hình Ảnh</label>
-                                <input type="file" class="form-control" style="width: 600px; height: 50px">
-
-
+                                <label class="form-label">Don vi</label>
+                                <input name="unit" type="text" class="form-control" style="width: 600px; height: 50px">
                             </div>
-                            <div class="mb-3">
-                                <label for="masanpham" class="form-label">Mô tả</label>
-                                <input type="text" class="form-control" style="width: 1200px; height:200px">
-
-
-                            </div>
-
-
-
-
-
-
-
                             <button type="submit" class="btn btn-primary" style="float: right; width: 200px; margin-right: 500px; margin-bottom: 100px; padding: 20px 20px" >THÊM SẢN PHẨM</button>
                         </form>
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 
